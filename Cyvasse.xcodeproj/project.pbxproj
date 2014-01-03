@@ -1,0 +1,308 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		270A8DA01877742F00B762A0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 270A8D9F1877742F00B762A0 /* UIKit.framework */; };
+		270A8DA21877742F00B762A0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 270A8DA11877742F00B762A0 /* Foundation.framework */; };
+		270A8DA41877742F00B762A0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 270A8DA31877742F00B762A0 /* CoreGraphics.framework */; };
+		270A8DA61877742F00B762A0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 270A8DA51877742F00B762A0 /* CoreData.framework */; };
+		270A8DAC1877742F00B762A0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 270A8DAA1877742F00B762A0 /* InfoPlist.strings */; };
+		270A8DAE1877742F00B762A0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 270A8DAD1877742F00B762A0 /* main.m */; };
+		270A8DB21877742F00B762A0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 270A8DB11877742F00B762A0 /* AppDelegate.m */; };
+		270A8DB41877742F00B762A0 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 270A8DB31877742F00B762A0 /* Default.png */; };
+		270A8DB61877742F00B762A0 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 270A8DB51877742F00B762A0 /* Default@2x.png */; };
+		270A8DB81877742F00B762A0 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 270A8DB71877742F00B762A0 /* Default-568h@2x.png */; };
+		270A8DBB1877742F00B762A0 /* Cyvasse.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 270A8DB91877742F00B762A0 /* Cyvasse.xcdatamodeld */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		270A8D9C1877742F00B762A0 /* Cyvasse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cyvasse.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		270A8D9F1877742F00B762A0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		270A8DA11877742F00B762A0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		270A8DA31877742F00B762A0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		270A8DA51877742F00B762A0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		270A8DA91877742F00B762A0 /* Cyvasse-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Cyvasse-Info.plist"; sourceTree = "<group>"; };
+		270A8DAB1877742F00B762A0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		270A8DAD1877742F00B762A0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		270A8DAF1877742F00B762A0 /* Cyvasse-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cyvasse-Prefix.pch"; sourceTree = "<group>"; };
+		270A8DB01877742F00B762A0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		270A8DB11877742F00B762A0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		270A8DB31877742F00B762A0 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		270A8DB51877742F00B762A0 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		270A8DB71877742F00B762A0 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		270A8DBA1877742F00B762A0 /* Cyvasse.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Cyvasse.xcdatamodel; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		270A8D991877742F00B762A0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				270A8DA01877742F00B762A0 /* UIKit.framework in Frameworks */,
+				270A8DA21877742F00B762A0 /* Foundation.framework in Frameworks */,
+				270A8DA41877742F00B762A0 /* CoreGraphics.framework in Frameworks */,
+				270A8DA61877742F00B762A0 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		270A8D931877742F00B762A0 = {
+			isa = PBXGroup;
+			children = (
+				270A8DA71877742F00B762A0 /* Cyvasse */,
+				270A8D9E1877742F00B762A0 /* Frameworks */,
+				270A8D9D1877742F00B762A0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		270A8D9D1877742F00B762A0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				270A8D9C1877742F00B762A0 /* Cyvasse.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		270A8D9E1877742F00B762A0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				270A8D9F1877742F00B762A0 /* UIKit.framework */,
+				270A8DA11877742F00B762A0 /* Foundation.framework */,
+				270A8DA31877742F00B762A0 /* CoreGraphics.framework */,
+				270A8DA51877742F00B762A0 /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		270A8DA71877742F00B762A0 /* Cyvasse */ = {
+			isa = PBXGroup;
+			children = (
+				270A8DB01877742F00B762A0 /* AppDelegate.h */,
+				270A8DB11877742F00B762A0 /* AppDelegate.m */,
+				270A8DB91877742F00B762A0 /* Cyvasse.xcdatamodeld */,
+				270A8DA81877742F00B762A0 /* Supporting Files */,
+			);
+			path = Cyvasse;
+			sourceTree = "<group>";
+		};
+		270A8DA81877742F00B762A0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				270A8DA91877742F00B762A0 /* Cyvasse-Info.plist */,
+				270A8DAA1877742F00B762A0 /* InfoPlist.strings */,
+				270A8DAD1877742F00B762A0 /* main.m */,
+				270A8DAF1877742F00B762A0 /* Cyvasse-Prefix.pch */,
+				270A8DB31877742F00B762A0 /* Default.png */,
+				270A8DB51877742F00B762A0 /* Default@2x.png */,
+				270A8DB71877742F00B762A0 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		270A8D9B1877742F00B762A0 /* Cyvasse */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 270A8DBE1877742F00B762A0 /* Build configuration list for PBXNativeTarget "Cyvasse" */;
+			buildPhases = (
+				270A8D981877742F00B762A0 /* Sources */,
+				270A8D991877742F00B762A0 /* Frameworks */,
+				270A8D9A1877742F00B762A0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Cyvasse;
+			productName = Cyvasse;
+			productReference = 270A8D9C1877742F00B762A0 /* Cyvasse.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		270A8D941877742F00B762A0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "John West";
+			};
+			buildConfigurationList = 270A8D971877742F00B762A0 /* Build configuration list for PBXProject "Cyvasse" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 270A8D931877742F00B762A0;
+			productRefGroup = 270A8D9D1877742F00B762A0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				270A8D9B1877742F00B762A0 /* Cyvasse */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		270A8D9A1877742F00B762A0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				270A8DAC1877742F00B762A0 /* InfoPlist.strings in Resources */,
+				270A8DB41877742F00B762A0 /* Default.png in Resources */,
+				270A8DB61877742F00B762A0 /* Default@2x.png in Resources */,
+				270A8DB81877742F00B762A0 /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		270A8D981877742F00B762A0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				270A8DAE1877742F00B762A0 /* main.m in Sources */,
+				270A8DB21877742F00B762A0 /* AppDelegate.m in Sources */,
+				270A8DBB1877742F00B762A0 /* Cyvasse.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		270A8DAA1877742F00B762A0 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				270A8DAB1877742F00B762A0 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		270A8DBC1877742F00B762A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		270A8DBD1877742F00B762A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		270A8DBF1877742F00B762A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Cyvasse/Cyvasse-Prefix.pch";
+				INFOPLIST_FILE = "Cyvasse/Cyvasse-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		270A8DC01877742F00B762A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Cyvasse/Cyvasse-Prefix.pch";
+				INFOPLIST_FILE = "Cyvasse/Cyvasse-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		270A8D971877742F00B762A0 /* Build configuration list for PBXProject "Cyvasse" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				270A8DBC1877742F00B762A0 /* Debug */,
+				270A8DBD1877742F00B762A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		270A8DBE1877742F00B762A0 /* Build configuration list for PBXNativeTarget "Cyvasse" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				270A8DBF1877742F00B762A0 /* Debug */,
+				270A8DC01877742F00B762A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		270A8DB91877742F00B762A0 /* Cyvasse.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				270A8DBA1877742F00B762A0 /* Cyvasse.xcdatamodel */,
+			);
+			currentVersion = 270A8DBA1877742F00B762A0 /* Cyvasse.xcdatamodel */;
+			path = Cyvasse.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 270A8D941877742F00B762A0 /* Project object */;
+}

@@ -18,6 +18,22 @@
 		270A8DB61877742F00B762A0 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 270A8DB51877742F00B762A0 /* Default@2x.png */; };
 		270A8DB81877742F00B762A0 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 270A8DB71877742F00B762A0 /* Default-568h@2x.png */; };
 		270A8DBB1877742F00B762A0 /* Cyvasse.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 270A8DB91877742F00B762A0 /* Cyvasse.xcdatamodeld */; };
+		270A8DE1187774B100B762A0 /* Catapult.m in Sources */ = {isa = PBXBuildFile; fileRef = 270A8DC2187774B100B762A0 /* Catapult.m */; };
+		270A8DE2187774B100B762A0 /* Crossbowman.m in Sources */ = {isa = PBXBuildFile; fileRef = 270A8DC4187774B100B762A0 /* Crossbowman.m */; };
+		270A8DE3187774B100B762A0 /* Dragon.m in Sources */ = {isa = PBXBuildFile; fileRef = 270A8DC6187774B100B762A0 /* Dragon.m */; };
+		270A8DE4187774B100B762A0 /* Elephant.m in Sources */ = {isa = PBXBuildFile; fileRef = 270A8DC8187774B100B762A0 /* Elephant.m */; };
+		270A8DE5187774B100B762A0 /* Heavy Horse.m in Sources */ = {isa = PBXBuildFile; fileRef = 270A8DCA187774B100B762A0 /* Heavy Horse.m */; };
+		270A8DE6187774B100B762A0 /* BlackDragon.png in Resources */ = {isa = PBXBuildFile; fileRef = 270A8DCC187774B100B762A0 /* BlackDragon.png */; };
+		270A8DE7187774B100B762A0 /* King.m in Sources */ = {isa = PBXBuildFile; fileRef = 270A8DCE187774B100B762A0 /* King.m */; };
+		270A8DE8187774B100B762A0 /* Light Horse.m in Sources */ = {isa = PBXBuildFile; fileRef = 270A8DD0187774B100B762A0 /* Light Horse.m */; };
+		270A8DE9187774B100B762A0 /* Piece.m in Sources */ = {isa = PBXBuildFile; fileRef = 270A8DD2187774B100B762A0 /* Piece.m */; };
+		270A8DEA187774B100B762A0 /* PieceHealthView.m in Sources */ = {isa = PBXBuildFile; fileRef = 270A8DD4187774B100B762A0 /* PieceHealthView.m */; };
+		270A8DEB187774B100B762A0 /* PieceHealthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 270A8DD6187774B100B762A0 /* PieceHealthViewController.m */; };
+		270A8DEC187774B100B762A0 /* PieceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 270A8DD8187774B100B762A0 /* PieceView.m */; };
+		270A8DED187774B100B762A0 /* PieceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 270A8DDA187774B100B762A0 /* PieceViewController.m */; };
+		270A8DEE187774B100B762A0 /* Rabble.m in Sources */ = {isa = PBXBuildFile; fileRef = 270A8DDC187774B100B762A0 /* Rabble.m */; };
+		270A8DEF187774B100B762A0 /* Spearman.m in Sources */ = {isa = PBXBuildFile; fileRef = 270A8DDE187774B100B762A0 /* Spearman.m */; };
+		270A8DF0187774B100B762A0 /* Trebuchet.m in Sources */ = {isa = PBXBuildFile; fileRef = 270A8DE0187774B100B762A0 /* Trebuchet.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +52,37 @@
 		270A8DB51877742F00B762A0 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		270A8DB71877742F00B762A0 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		270A8DBA1877742F00B762A0 /* Cyvasse.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Cyvasse.xcdatamodel; sourceTree = "<group>"; };
+		270A8DC1187774B100B762A0 /* Catapult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Catapult.h; sourceTree = "<group>"; };
+		270A8DC2187774B100B762A0 /* Catapult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Catapult.m; sourceTree = "<group>"; };
+		270A8DC3187774B100B762A0 /* Crossbowman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Crossbowman.h; sourceTree = "<group>"; };
+		270A8DC4187774B100B762A0 /* Crossbowman.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Crossbowman.m; sourceTree = "<group>"; };
+		270A8DC5187774B100B762A0 /* Dragon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dragon.h; sourceTree = "<group>"; };
+		270A8DC6187774B100B762A0 /* Dragon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dragon.m; sourceTree = "<group>"; };
+		270A8DC7187774B100B762A0 /* Elephant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Elephant.h; sourceTree = "<group>"; };
+		270A8DC8187774B100B762A0 /* Elephant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Elephant.m; sourceTree = "<group>"; };
+		270A8DC9187774B100B762A0 /* Heavy Horse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Heavy Horse.h"; sourceTree = "<group>"; };
+		270A8DCA187774B100B762A0 /* Heavy Horse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Heavy Horse.m"; sourceTree = "<group>"; };
+		270A8DCC187774B100B762A0 /* BlackDragon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BlackDragon.png; sourceTree = "<group>"; };
+		270A8DCD187774B100B762A0 /* King.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = King.h; sourceTree = "<group>"; };
+		270A8DCE187774B100B762A0 /* King.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = King.m; sourceTree = "<group>"; };
+		270A8DCF187774B100B762A0 /* Light Horse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Light Horse.h"; sourceTree = "<group>"; };
+		270A8DD0187774B100B762A0 /* Light Horse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Light Horse.m"; sourceTree = "<group>"; };
+		270A8DD1187774B100B762A0 /* Piece.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Piece.h; sourceTree = "<group>"; };
+		270A8DD2187774B100B762A0 /* Piece.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Piece.m; sourceTree = "<group>"; };
+		270A8DD3187774B100B762A0 /* PieceHealthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PieceHealthView.h; sourceTree = "<group>"; };
+		270A8DD4187774B100B762A0 /* PieceHealthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PieceHealthView.m; sourceTree = "<group>"; };
+		270A8DD5187774B100B762A0 /* PieceHealthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PieceHealthViewController.h; sourceTree = "<group>"; };
+		270A8DD6187774B100B762A0 /* PieceHealthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PieceHealthViewController.m; sourceTree = "<group>"; };
+		270A8DD7187774B100B762A0 /* PieceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PieceView.h; sourceTree = "<group>"; };
+		270A8DD8187774B100B762A0 /* PieceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PieceView.m; sourceTree = "<group>"; };
+		270A8DD9187774B100B762A0 /* PieceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PieceViewController.h; sourceTree = "<group>"; };
+		270A8DDA187774B100B762A0 /* PieceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PieceViewController.m; sourceTree = "<group>"; };
+		270A8DDB187774B100B762A0 /* Rabble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rabble.h; sourceTree = "<group>"; };
+		270A8DDC187774B100B762A0 /* Rabble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rabble.m; sourceTree = "<group>"; };
+		270A8DDD187774B100B762A0 /* Spearman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spearman.h; sourceTree = "<group>"; };
+		270A8DDE187774B100B762A0 /* Spearman.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Spearman.m; sourceTree = "<group>"; };
+		270A8DDF187774B100B762A0 /* Trebuchet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trebuchet.h; sourceTree = "<group>"; };
+		270A8DE0187774B100B762A0 /* Trebuchet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Trebuchet.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,9 +131,10 @@
 		270A8DA71877742F00B762A0 /* Cyvasse */ = {
 			isa = PBXGroup;
 			children = (
+				270A8DB91877742F00B762A0 /* Cyvasse.xcdatamodeld */,
 				270A8DB01877742F00B762A0 /* AppDelegate.h */,
 				270A8DB11877742F00B762A0 /* AppDelegate.m */,
-				270A8DB91877742F00B762A0 /* Cyvasse.xcdatamodeld */,
+				270A8DF1187774BC00B762A0 /* Piece */,
 				270A8DA81877742F00B762A0 /* Supporting Files */,
 			);
 			path = Cyvasse;
@@ -95,6 +143,7 @@
 		270A8DA81877742F00B762A0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				270A8DCB187774B100B762A0 /* Images */,
 				270A8DA91877742F00B762A0 /* Cyvasse-Info.plist */,
 				270A8DAA1877742F00B762A0 /* InfoPlist.strings */,
 				270A8DAD1877742F00B762A0 /* main.m */,
@@ -104,6 +153,59 @@
 				270A8DB71877742F00B762A0 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		270A8DCB187774B100B762A0 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				270A8DCC187774B100B762A0 /* BlackDragon.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		270A8DF1187774BC00B762A0 /* Piece */ = {
+			isa = PBXGroup;
+			children = (
+				270A8DF21877750C00B762A0 /* PieceView */,
+				270A8DC1187774B100B762A0 /* Catapult.h */,
+				270A8DC2187774B100B762A0 /* Catapult.m */,
+				270A8DC3187774B100B762A0 /* Crossbowman.h */,
+				270A8DC4187774B100B762A0 /* Crossbowman.m */,
+				270A8DC5187774B100B762A0 /* Dragon.h */,
+				270A8DC6187774B100B762A0 /* Dragon.m */,
+				270A8DC7187774B100B762A0 /* Elephant.h */,
+				270A8DC8187774B100B762A0 /* Elephant.m */,
+				270A8DC9187774B100B762A0 /* Heavy Horse.h */,
+				270A8DCA187774B100B762A0 /* Heavy Horse.m */,
+				270A8DCD187774B100B762A0 /* King.h */,
+				270A8DCE187774B100B762A0 /* King.m */,
+				270A8DCF187774B100B762A0 /* Light Horse.h */,
+				270A8DD0187774B100B762A0 /* Light Horse.m */,
+				270A8DD1187774B100B762A0 /* Piece.h */,
+				270A8DD2187774B100B762A0 /* Piece.m */,
+				270A8DDB187774B100B762A0 /* Rabble.h */,
+				270A8DDC187774B100B762A0 /* Rabble.m */,
+				270A8DDD187774B100B762A0 /* Spearman.h */,
+				270A8DDE187774B100B762A0 /* Spearman.m */,
+				270A8DDF187774B100B762A0 /* Trebuchet.h */,
+				270A8DE0187774B100B762A0 /* Trebuchet.m */,
+			);
+			name = Piece;
+			sourceTree = "<group>";
+		};
+		270A8DF21877750C00B762A0 /* PieceView */ = {
+			isa = PBXGroup;
+			children = (
+				270A8DD3187774B100B762A0 /* PieceHealthView.h */,
+				270A8DD4187774B100B762A0 /* PieceHealthView.m */,
+				270A8DD5187774B100B762A0 /* PieceHealthViewController.h */,
+				270A8DD6187774B100B762A0 /* PieceHealthViewController.m */,
+				270A8DD7187774B100B762A0 /* PieceView.h */,
+				270A8DD8187774B100B762A0 /* PieceView.m */,
+				270A8DD9187774B100B762A0 /* PieceViewController.h */,
+				270A8DDA187774B100B762A0 /* PieceViewController.m */,
+			);
+			name = PieceView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,6 +263,7 @@
 				270A8DB41877742F00B762A0 /* Default.png in Resources */,
 				270A8DB61877742F00B762A0 /* Default@2x.png in Resources */,
 				270A8DB81877742F00B762A0 /* Default-568h@2x.png in Resources */,
+				270A8DE6187774B100B762A0 /* BlackDragon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,6 +277,21 @@
 				270A8DAE1877742F00B762A0 /* main.m in Sources */,
 				270A8DB21877742F00B762A0 /* AppDelegate.m in Sources */,
 				270A8DBB1877742F00B762A0 /* Cyvasse.xcdatamodeld in Sources */,
+				270A8DE1187774B100B762A0 /* Catapult.m in Sources */,
+				270A8DE2187774B100B762A0 /* Crossbowman.m in Sources */,
+				270A8DE3187774B100B762A0 /* Dragon.m in Sources */,
+				270A8DE4187774B100B762A0 /* Elephant.m in Sources */,
+				270A8DE5187774B100B762A0 /* Heavy Horse.m in Sources */,
+				270A8DE7187774B100B762A0 /* King.m in Sources */,
+				270A8DE8187774B100B762A0 /* Light Horse.m in Sources */,
+				270A8DE9187774B100B762A0 /* Piece.m in Sources */,
+				270A8DEA187774B100B762A0 /* PieceHealthView.m in Sources */,
+				270A8DEB187774B100B762A0 /* PieceHealthViewController.m in Sources */,
+				270A8DEC187774B100B762A0 /* PieceView.m in Sources */,
+				270A8DED187774B100B762A0 /* PieceViewController.m in Sources */,
+				270A8DEE187774B100B762A0 /* Rabble.m in Sources */,
+				270A8DEF187774B100B762A0 /* Spearman.m in Sources */,
+				270A8DF0187774B100B762A0 /* Trebuchet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

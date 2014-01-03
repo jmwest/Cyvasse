@@ -7,8 +7,12 @@
 //
 
 #import "AppDelegate.h"
+#import "PieceViewController.h"
 
 @implementation AppDelegate
+
+@synthesize window = _window;
+@synthesize navigationController = _navigationController;
 
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
@@ -17,7 +21,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
+
+	PieceViewController *PVC = [[PieceViewController alloc] initWithImage:@"BlackDragon" Frame:CGRectMake(96, 96, 32, 32) AndColor:[UIColor blueColor]];
+	[[self window] setRootViewController:PVC];
+
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;

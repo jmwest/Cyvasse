@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "PieceViewController.h"
+#import "TileViewController.h"
 #import "Dragon.h"
 
 @implementation AppDelegate
@@ -24,9 +25,30 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
 	UIViewController *VC = [[UIViewController alloc] init];
-	PieceViewController *PVC = [[PieceViewController alloc] initWithImage:@"BlackDragon" Piece:[[Dragon alloc] init] Frame:CGRectMake(96, 96, 32, 32) AndColor:[UIColor blueColor]];
-	[VC addChildViewController:PVC];
-	[[VC view] addSubview:[PVC view]];
+	PieceViewController *BDPVC = [[PieceViewController alloc] initWithImage:@"BlackDragon" Piece:[[Dragon alloc] init] Frame:CGRectMake(224, 128, 32, 32) AndColor:[UIColor blueColor]];
+	PieceViewController *RDPVC = [[PieceViewController alloc] initWithImage:@"RedDragon" Piece:[[Dragon alloc] init] Frame:CGRectMake(96, 96, 32, 32) AndColor:[UIColor redColor]];
+	TileViewController *RTVC = [[TileViewController alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 32.0f, 32.0f)];
+	TileViewController *MTVC = [[TileViewController alloc] initWithFrame:CGRectMake(192.0f, 32.0f, 32.0f, 32.0f)];
+	TileViewController *ATVC = [[TileViewController alloc] initWithColumn:9 AndRow:1];
+
+	[RTVC setTilePassability:Mountain];
+//	[MTVC setTilePassability:Plains];
+//	[ATVC setTilePassability:Plains];
+
+	[MTVC setTileOverlay:Movement];
+	[ATVC setTileOverlay:Attack];
+
+	[VC addChildViewController:BDPVC];
+	[VC addChildViewController:RDPVC];
+	[VC addChildViewController:RTVC];
+	[VC addChildViewController:MTVC];
+	[VC addChildViewController:ATVC];
+
+	[[VC view] addSubview:[BDPVC view]];
+	[[VC view] addSubview:[RDPVC view]];
+	[[VC view] addSubview:[RTVC view]];
+	[[VC view] addSubview:[MTVC view]];
+	[[VC view] addSubview:[ATVC view]];
 
 	[[self window] setRootViewController:VC];
 

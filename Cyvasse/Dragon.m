@@ -15,8 +15,8 @@
 	self = [super init];
 	if (self)
 	{
-		[self setHealth:5];
-		[self setMaxHealth:5];
+		[self setHealth:6];
+		[self setMaxHealth:6];
 		[self setAttack:4];
 		[self setAttackRange:1];
 		[self setAttackWidth:1];

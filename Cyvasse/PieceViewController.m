@@ -47,16 +47,18 @@
 	[[[self PView] PieceHealthBar] setBackgroundColor:color];
 }
 
-- (void)setHealthBarLength:(int)currentHealth :(int)maxHealth
+- (void)setHealthBarLength:(float)currentHealth :(float)maxHealth
 {
-	double newWidth;
+	float newWidth;
 	
-	newWidth = ( currentHealth / maxHealth ) * [[self PView] frame].size.width;
-	
+	newWidth = ( currentHealth / maxHealth ) * [[[self PView] PieceHealthBar] frame].size.width;
+
+	[[[self PView] PieceHealthBar] removeFromSuperview];
 	[[[self PView] PieceHealthBar] setFrame:CGRectMake([[[self PView] PieceHealthBar] frame].origin.x,
 												   [[[self PView] PieceHealthBar] frame].origin.y,
 												   newWidth,
 												   [[[self PView] PieceHealthBar] frame].size.height)];
+	[[self PView] addSubview:[[self PView] PieceHealthBar]];
 }
 
 @end

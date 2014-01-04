@@ -31,7 +31,7 @@
 		_AttackWidth = 0;
 		_Defense = 0;
 		_MovementLength = 0;
-		_Capability = Default;
+		_Capability = DefaultMC;
 	}
 	return self;
 }

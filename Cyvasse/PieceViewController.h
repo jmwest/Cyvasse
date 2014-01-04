@@ -16,7 +16,7 @@
 - (id)initWithImage:(NSString *)imageName Piece:(Piece *)piece Frame:(CGRect)frame AndColor:(UIColor *)color;
 
 - (void)setHealthBarColor:(UIColor *)color;
-- (void)setHealthBarLength:(int)currentHealth :(int)maxHealth;
+- (void)setHealthBarLength:(float)currentHealth :(float)maxHealth;
 
 @property (strong, nonatomic) PieceView *PView;
 @property (strong, nonatomic) Piece *piece;

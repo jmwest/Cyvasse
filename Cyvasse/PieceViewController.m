@@ -15,18 +15,16 @@
 @implementation PieceViewController
 
 @synthesize PView = _PView;
+@synthesize piece = _piece;
 
-- (id)initWithImage:(NSString *)imageName Frame:(CGRect)frame AndColor:(UIColor *)color
+- (id)initWithImage:(NSString *)imageName Piece:(Piece *)piece Frame:(CGRect)frame AndColor:(UIColor *)color
 {
 	self = [super init];
 	if (self)
 	{
-		[self setPView:[[PieceView alloc] initWithFrame:frame]];
-		[self setView:[self PView]];
-		[self setPieceHealthVC:[[PieceHealthViewController alloc] initWithFrame:frame AndColor:color]];
+		[self setPView:[[PieceView alloc] initWithFrame:frame Image:imageName AndHealthColor:color]];
 
-		UIImage *image = [UIImage imageNamed:imageName];
-		[[[self PView] PieceImage] setImage:image];
+		[self setPiece:piece];
 	}
 	return self;
 }
@@ -35,14 +33,30 @@
 {
     [super viewDidLoad];
 
-	[[self PView] addSubview:[[self PView] PieceImage]];
-	[[self PView] addSubview:[[self PieceHealthVC] PHView]];
+	[self setView:[self PView]];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)setHealthBarColor:(UIColor *)color
+{
+	[[[self PView] PieceHealthBar] setBackgroundColor:color];
+}
+
+- (void)setHealthBarLength:(int)currentHealth :(int)maxHealth
+{
+	double newWidth;
+	
+	newWidth = ( currentHealth / maxHealth ) * [[self PView] frame].size.width;
+	
+	[[[self PView] PieceHealthBar] setFrame:CGRectMake([[[self PView] PieceHealthBar] frame].origin.x,
+												   [[[self PView] PieceHealthBar] frame].origin.y,
+												   newWidth,
+												   [[[self PView] PieceHealthBar] frame].size.height)];
 }
 
 @end

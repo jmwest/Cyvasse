@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-#include "PieceHealthView.h"
-
 @interface PieceView : UIView
 
+- (id)initWithFrame:(CGRect)frame Image:(NSString *)string AndHealthColor:(UIColor *)color;
+
 @property (strong, nonatomic) UIImageView *PieceImage;
+@property (strong, nonatomic) UIView *PieceHealthBar;
+@property (strong, nonatomic) UIView *PieceHealthBackground;
 
 @end

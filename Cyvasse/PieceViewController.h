@@ -9,13 +9,16 @@
 #import <UIKit/UIKit.h>
 
 #include "PieceView.h"
-#include "PieceHealthViewController.h"
+#include "Piece.h"
 
 @interface PieceViewController : UIViewController
 
-- (id)initWithImage:(NSString *)imageName Frame:(CGRect)frame AndColor:(UIColor *)color;
+- (id)initWithImage:(NSString *)imageName Piece:(Piece *)piece Frame:(CGRect)frame AndColor:(UIColor *)color;
+
+- (void)setHealthBarColor:(UIColor *)color;
+- (void)setHealthBarLength:(int)currentHealth :(int)maxHealth;
 
 @property (strong, nonatomic) PieceView *PView;
-@property (strong, nonatomic) PieceHealthViewController *PieceHealthVC;
+@property (strong, nonatomic) Piece *piece;
 
 @end

@@ -11,8 +11,10 @@
 @implementation PieceView
 
 @synthesize PieceImage = _PieceImage;
+@synthesize PieceHealthBar = _PieceHealthBar;
+@synthesize PieceHealthBackground = _PieceHealthBackground;
 
-- (id)initWithFrame:(CGRect)frame
+- (id)initWithFrame:(CGRect)frame Image:(NSString *)string AndHealthColor:(UIColor *)color
 {
     self = [super initWithFrame:frame];
     if (self) {
@@ -20,6 +22,26 @@
 																		  0.0f,
 																		  frame.size.width,
 																		  frame.size.height - 2.0f)]];
+		[self setPieceHealthBar:[[UIView alloc] initWithFrame:CGRectMake(0.0f,
+																		 frame.size.height - 2.0f,
+																		 frame.size.width,
+																		 2.0f)]];
+		[self setPieceHealthBackground:[[UIView alloc] initWithFrame:CGRectMake(0.0f,
+																		 frame.size.height - 2.0f,
+																		 frame.size.width,
+																		 2.0f)]];
+
+		[self setBackgroundColor:[UIColor clearColor]];
+
+		UIImage *image = [UIImage imageNamed:string];
+		[[self PieceImage] setImage:image];
+
+		[[self PieceHealthBar] setBackgroundColor:color];
+		[[self PieceHealthBackground] setBackgroundColor:[UIColor blackColor]];
+
+		[self addSubview:[self PieceImage]];
+		[self addSubview:[self PieceHealthBackground]];
+		[self addSubview:[self PieceHealthBar]];
     }
     return self;
 }

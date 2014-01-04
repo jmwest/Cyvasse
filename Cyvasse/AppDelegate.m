@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "PieceViewController.h"
+#import "Dragon.h"
 
 @implementation AppDelegate
 
@@ -22,8 +23,12 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
-	PieceViewController *PVC = [[PieceViewController alloc] initWithImage:@"BlackDragon" Frame:CGRectMake(96, 96, 32, 32) AndColor:[UIColor blueColor]];
-	[[self window] setRootViewController:PVC];
+	UIViewController *VC = [[UIViewController alloc] init];
+	PieceViewController *PVC = [[PieceViewController alloc] initWithImage:@"BlackDragon" Piece:[[Dragon alloc] init] Frame:CGRectMake(96, 96, 32, 32) AndColor:[UIColor blueColor]];
+	[VC addChildViewController:PVC];
+	[[VC view] addSubview:[PVC view]];
+
+	[[self window] setRootViewController:VC];
 
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

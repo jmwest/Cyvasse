@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-#include "PieceView.h"
-#include "Piece.h"
+#import "PieceView.h"
+#import "Piece.h"
 
 @interface PieceViewController : UIViewController
 

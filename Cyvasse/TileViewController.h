@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#include "TileView.h"
+#import "TileView.h"
 
 typedef enum {
 	DefaultH,

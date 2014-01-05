@@ -35,6 +35,9 @@
 		27723EA11877E4B400556BF9 /* TileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27723EA01877E4B400556BF9 /* TileView.m */; };
 		27723EA41877E71300556BF9 /* TileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27723EA31877E71300556BF9 /* TileViewController.m */; };
 		27723EA61877ED9B00556BF9 /* RedDragon.png in Resources */ = {isa = PBXBuildFile; fileRef = 27723EA51877ED9B00556BF9 /* RedDragon.png */; };
+		277D547018789FE700D23813 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 277D546F18789FE700D23813 /* GameKit.framework */; };
+		277D54741878A13F00D23813 /* BoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 277D54731878A13F00D23813 /* BoardView.m */; };
+		277D54771878B10400D23813 /* BoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 277D54761878B10400D23813 /* BoardViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +88,12 @@
 		27723EA21877E71300556BF9 /* TileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileViewController.h; sourceTree = "<group>"; };
 		27723EA31877E71300556BF9 /* TileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileViewController.m; sourceTree = "<group>"; };
 		27723EA51877ED9B00556BF9 /* RedDragon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedDragon.png; sourceTree = "<group>"; };
+		277D546F18789FE700D23813 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		277D54721878A13F00D23813 /* BoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardView.h; sourceTree = "<group>"; };
+		277D54731878A13F00D23813 /* BoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardView.m; sourceTree = "<group>"; };
+		277D54751878B10400D23813 /* BoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardViewController.h; sourceTree = "<group>"; };
+		277D54761878B10400D23813 /* BoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardViewController.m; sourceTree = "<group>"; };
+		277D54781878C34300D23813 /* GlobalConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalConstants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +105,7 @@
 				270A8DA21877742F00B762A0 /* Foundation.framework in Frameworks */,
 				270A8DA41877742F00B762A0 /* CoreGraphics.framework in Frameworks */,
 				270A8DA61877742F00B762A0 /* CoreData.framework in Frameworks */,
+				277D547018789FE700D23813 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,6 +132,7 @@
 		270A8D9E1877742F00B762A0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				277D546F18789FE700D23813 /* GameKit.framework */,
 				270A8D9F1877742F00B762A0 /* UIKit.framework */,
 				270A8DA11877742F00B762A0 /* Foundation.framework */,
 				270A8DA31877742F00B762A0 /* CoreGraphics.framework */,
@@ -136,8 +147,10 @@
 				270A8DB91877742F00B762A0 /* Cyvasse.xcdatamodeld */,
 				270A8DB01877742F00B762A0 /* AppDelegate.h */,
 				270A8DB11877742F00B762A0 /* AppDelegate.m */,
+				277D54781878C34300D23813 /* GlobalConstants.h */,
 				270A8DF1187774BC00B762A0 /* Piece */,
 				27B95BC81877C65F0020E98F /* TileViews */,
+				277D54711878A10B00D23813 /* Board */,
 				270A8DA81877742F00B762A0 /* Supporting Files */,
 			);
 			path = Cyvasse;
@@ -208,6 +221,17 @@
 			name = PieceView;
 			sourceTree = "<group>";
 		};
+		277D54711878A10B00D23813 /* Board */ = {
+			isa = PBXGroup;
+			children = (
+				277D54751878B10400D23813 /* BoardViewController.h */,
+				277D54761878B10400D23813 /* BoardViewController.m */,
+				277D54721878A13F00D23813 /* BoardView.h */,
+				277D54731878A13F00D23813 /* BoardView.m */,
+			);
+			name = Board;
+			sourceTree = "<group>";
+		};
 		27B95BC81877C65F0020E98F /* TileViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -247,6 +271,16 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "John West";
+				TargetAttributes = {
+					270A8D9B1877742F00B762A0 = {
+						DevelopmentTeam = K45BYG5FM4;
+						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 1;
+							};
+						};
+					};
+				};
 			};
 			buildConfigurationList = 270A8D971877742F00B762A0 /* Build configuration list for PBXProject "Cyvasse" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -286,6 +320,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				277D54741878A13F00D23813 /* BoardView.m in Sources */,
 				270A8DAE1877742F00B762A0 /* main.m in Sources */,
 				270A8DB21877742F00B762A0 /* AppDelegate.m in Sources */,
 				270A8DBB1877742F00B762A0 /* Cyvasse.xcdatamodeld in Sources */,
@@ -296,6 +331,7 @@
 				270A8DE5187774B100B762A0 /* Heavy Horse.m in Sources */,
 				270A8DE7187774B100B762A0 /* King.m in Sources */,
 				27723EA11877E4B400556BF9 /* TileView.m in Sources */,
+				277D54771878B10400D23813 /* BoardViewController.m in Sources */,
 				27723EA41877E71300556BF9 /* TileViewController.m in Sources */,
 				270A8DE8187774B100B762A0 /* Light Horse.m in Sources */,
 				270A8DE9187774B100B762A0 /* Piece.m in Sources */,
@@ -380,10 +416,14 @@
 		270A8DBF1877742F00B762A0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Cyvasse/Cyvasse-Prefix.pch";
 				INFOPLIST_FILE = "Cyvasse/Cyvasse-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -391,10 +431,14 @@
 		270A8DC01877742F00B762A0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Cyvasse/Cyvasse-Prefix.pch";
 				INFOPLIST_FILE = "Cyvasse/Cyvasse-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

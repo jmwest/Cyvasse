@@ -7,6 +7,7 @@
 //
 
 #import "TileViewController.h"
+#import "GlobalConstants.h"
 
 @interface TileViewController ()
 
@@ -30,7 +31,10 @@
 #pragma mark Columns and Rows must be 0 - 9, inclusive
 - (id)initWithColumn:(int)column AndRow:(int)row
 {
-	CGRect rect = CGRectMake(column * 32.0f, row * 32.0f, 32.0f, 32.0f);
+	CGRect rect = CGRectMake(FIRST_COLUMN_X + (column * TILE_SIZE),
+							 FIRST_COLUMN_Y + (row * TILE_SIZE),
+							 TILE_SIZE,
+							 TILE_SIZE);
 
 	self = [self initWithFrame:rect];
 
@@ -48,7 +52,7 @@
 		[self setAttackColor:[UIColor colorWithRed:0.9f green:0.3f blue:0.3f alpha:0.2f]];
 
 		[self setPlainsColor:[UIColor greenColor]];
-		[self setMountainColor:[UIColor brownColor]];
+		[self setMountainColor:[UIColor darkGrayColor]];
 		[self setRiverColor:[UIColor blueColor]];
 	}
 	return self;

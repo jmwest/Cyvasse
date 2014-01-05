@@ -55,8 +55,8 @@
 	{
 		[self setTileV:[[TileView alloc] initWithFrame:rect]];
 
-		[self setMovementColor:[UIColor colorWithRed:0.3f green:0.5f blue:0.9f alpha:0.2f]];
-		[self setAttackColor:[UIColor colorWithRed:0.9f green:0.3f blue:0.3f alpha:0.2f]];
+		[self setMovementColor:[UIColor colorWithRed:0.69f green:0.769f blue:0.8706f alpha:0.3f]];
+		[self setAttackColor:[UIColor colorWithRed:0.94f green:0.5f blue:0.5f alpha:0.3f]];
 
 		[self setPlainsColor:[UIColor greenColor]];
 		[self setMountainColor:[UIColor darkGrayColor]];

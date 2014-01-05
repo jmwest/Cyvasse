@@ -10,10 +10,13 @@
 
 @interface PieceView : UIView
 
-- (id)initWithFrame:(CGRect)frame Image:(NSString *)string AndHealthColor:(UIColor *)color;
+- (id)initWithFrame:(CGRect)frame Image:(NSString *)string Column:(int)column Row:(int)row AndHealthColor:(UIColor *)color;
 
 @property (strong, nonatomic) UIImageView *PieceImage;
 @property (strong, nonatomic) UIView *PieceHealthBar;
 @property (strong, nonatomic) UIView *PieceHealthBackground;
+
+@property (assign, nonatomic) int column;
+@property (assign, nonatomic) int row;
 
 @end

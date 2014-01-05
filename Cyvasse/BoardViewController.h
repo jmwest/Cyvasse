@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 
 #import "BoardView.h"
+#import "PieceImportHeader.h"
 
-@interface BoardViewController : UIViewController
+@interface BoardViewController : UIViewController <MovePieceDelegate>
 
 @property (strong, nonatomic) NSMutableArray *Tiles;
 @property (strong, nonatomic) BoardView *BoardV;

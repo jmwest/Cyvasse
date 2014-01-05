@@ -14,7 +14,10 @@
 @synthesize PieceHealthBar = _PieceHealthBar;
 @synthesize PieceHealthBackground = _PieceHealthBackground;
 
-- (id)initWithFrame:(CGRect)frame Image:(NSString *)string AndHealthColor:(UIColor *)color
+@synthesize column = _column;
+@synthesize row = _row;
+
+- (id)initWithFrame:(CGRect)frame Image:(NSString *)string Column:(int)column Row:(int)row AndHealthColor:(UIColor *)color
 {
     self = [super initWithFrame:frame];
     if (self) {
@@ -35,6 +38,9 @@
 
 		UIImage *image = [UIImage imageNamed:string];
 		[[self PieceImage] setImage:image];
+
+		[self setColumn:column];
+		[self setRow:row];
 
 		[[self PieceHealthBar] setBackgroundColor:color];
 		[[self PieceHealthBackground] setBackgroundColor:[UIColor blackColor]];

@@ -17,6 +17,7 @@
 
 @synthesize PieceV = _PieceV;
 @synthesize piece = _piece;
+@synthesize TapGesture = _TapGesture;
 
 - (id)initWithImage:(NSString *)imageName Piece:(Piece *)piece Column:(int)column Row:(int)row AndColor:(UIColor *)color
 {
@@ -28,9 +29,11 @@
 								  TILE_SIZE,
 								  TILE_SIZE);
 
-		[self setPieceV:[[PieceView alloc] initWithFrame:frame Image:imageName AndHealthColor:color]];
+		[self setPieceV:[[PieceView alloc] initWithFrame:frame Image:imageName Column:column Row:row AndHealthColor:color]];
 
 		[self setPiece:piece];
+
+		[self setTapGesture:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(bringUpMovementBlocks)]];
 	}
 	return self;
 }
@@ -47,6 +50,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark -
 
 - (void)setHealthBarColor:(UIColor *)color
 {
@@ -65,6 +70,19 @@
 												   newWidth,
 												   [[[self PieceV] PieceHealthBar] frame].size.height)];
 	[[self PieceV] addSubview:[[self PieceV] PieceHealthBar]];
+}
+
+#pragma mark -
+
+- (void)bringUpMovementBlocks
+{
+	CoordinateModel *CM = [[CoordinateModel alloc] initWithColumn:[[self PieceV] column] AndRow:[[self PieceV] row]];
+	[[self moveDelegate] AllowPieceToBeMoved:CM];
+}
+
+- (void)bringUpAttackBlocks
+{
+	
 }
 
 @end

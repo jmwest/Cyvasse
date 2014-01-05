@@ -22,5 +22,6 @@
 
 #import "Piece.h"
 #import "PieceViewController.h"
+#import "CoordinateModel.h"
 
 #endif

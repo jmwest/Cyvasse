@@ -25,6 +25,13 @@
 @implementation TileViewController
 
 @synthesize TileV = _TileV;
+@synthesize TapRecognizer;
+
+@synthesize MovementColor = _MovementColor;
+@synthesize AttackColor = _AttackColor;
+@synthesize PlainsColor = _PlainsColor;
+@synthesize MountainColor = _MountainColor;
+@synthesize RiverColor = _RiverColor;
 
 #pragma mark - Init
 
@@ -54,6 +61,8 @@
 		[self setPlainsColor:[UIColor greenColor]];
 		[self setMountainColor:[UIColor darkGrayColor]];
 		[self setRiverColor:[UIColor blueColor]];
+
+		[self addTapGestureToTile];
 	}
 	return self;
 }
@@ -80,6 +89,43 @@
 		_TileV = [[TileView alloc] init];
 	}
 	return _TileV;
+}
+
+#pragma mark - Tap Gestures
+
+- (void)tileTapGesture:(UITapGestureRecognizer *)gesture
+{
+	switch ([[self TileV] Passability])
+	{
+		case Plains:
+			[self setTilePassability:Mountain];
+			break;
+
+		case Mountain:
+			[self setTilePassability:River];
+			break;
+
+		case River:
+			[self setTilePassability:Plains];
+			break;
+
+		default:
+			break;
+	}
+}
+
+- (void)addTapGestureToTile
+{
+	[self setTapRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tileTapGesture:)]];
+	[[self TapRecognizer] setNumberOfTapsRequired:1];
+	[[self TapRecognizer] setNumberOfTouchesRequired:1];
+	[[self TileV] addGestureRecognizer:[self TapRecognizer]];
+	[[self TapRecognizer] setDelegate:self];
+}
+
+- (void)removeTapGestureFromTile
+{
+	[[self TileV] removeGestureRecognizer:[self TapRecognizer]];
 }
 
 #pragma mark - Setters and Getters

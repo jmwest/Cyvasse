@@ -24,10 +24,10 @@
 																	 SCREEN_WIDTH,
 																	 BOARD_HEIGHT)]];
 
-		[[self Background] setBackgroundColor:[UIColor brownColor]];
+		[[self Background] setBackgroundColor:[UIColor blackColor]];
 		[self addSubview:[self Background]];
 
-//		[self setBackgroundColor:[UIColor lightGrayColor]];
+		[self setBackgroundColor:[UIColor lightGrayColor]];
     }
     return self;
 }

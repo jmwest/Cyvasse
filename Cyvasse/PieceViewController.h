@@ -13,12 +13,12 @@
 
 @interface PieceViewController : UIViewController
 
-- (id)initWithImage:(NSString *)imageName Piece:(Piece *)piece Frame:(CGRect)frame AndColor:(UIColor *)color;
+- (id)initWithImage:(NSString *)imageName Piece:(Piece *)piece Column:(int)column Row:(int)row AndColor:(UIColor *)color;
 
 - (void)setHealthBarColor:(UIColor *)color;
 - (void)setHealthBarLength:(float)currentHealth :(float)maxHealth;
 
-@property (strong, nonatomic) PieceView *PView;
+@property (strong, nonatomic) PieceView *PieceV;
 @property (strong, nonatomic) Piece *piece;
 
 @end

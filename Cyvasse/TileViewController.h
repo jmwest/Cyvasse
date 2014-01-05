@@ -17,10 +17,14 @@ typedef enum {
 	Attack
 } Highlight;
 
-@interface TileViewController : UIViewController
+@interface TileViewController : UIViewController <UIGestureRecognizerDelegate>
 
 - (id)initWithColumn:(int)column AndRow:(int)row;
 - (id)initWithFrame:(CGRect)rect;
+
+- (void)tileTapGesture:(UITapGestureRecognizer *)gesture;
+- (void)addTapGestureToTile;
+- (void)removeTapGestureFromTile;
 
 - (void)setTilePassability:(Terrain)terrain;
 - (void)setTileOverlay:(Highlight)highlight;
@@ -33,5 +37,7 @@ typedef enum {
 - (TileOccupied)checkTileOccupied;
 
 @property (strong, nonatomic) TileView *TileV;
+
+@property (strong, nonatomic) UITapGestureRecognizer *TapRecognizer;
 
 @end

@@ -8,6 +8,7 @@
 
 #import "BoardViewController.h"
 #import "TileViewController.h"
+#import "PieceImportHeader.h"
 
 @interface BoardViewController ()
 
@@ -45,6 +46,12 @@
 			[[self view] addSubview:[TVC TileV]];
 		}
 	}
+
+	Dragon *dragon = [[Dragon alloc] init];
+	PieceViewController *dragonController = [[PieceViewController alloc] initWithImage:@"BlackDragon" Piece:dragon Column:9 Row:9 AndColor:[UIColor blueColor]];
+
+	[self addChildViewController:dragonController];
+	[[self BoardV] addSubview:[dragonController PieceV]];
 }
 
 - (void)didReceiveMemoryWarning

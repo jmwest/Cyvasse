@@ -7,6 +7,7 @@
 //
 
 #import "PieceViewController.h"
+#import "GlobalConstants.h"
 
 @interface PieceViewController ()
 
@@ -14,15 +15,20 @@
 
 @implementation PieceViewController
 
-@synthesize PView = _PView;
+@synthesize PieceV = _PieceV;
 @synthesize piece = _piece;
 
-- (id)initWithImage:(NSString *)imageName Piece:(Piece *)piece Frame:(CGRect)frame AndColor:(UIColor *)color
+- (id)initWithImage:(NSString *)imageName Piece:(Piece *)piece Column:(int)column Row:(int)row AndColor:(UIColor *)color
 {
 	self = [super init];
 	if (self)
 	{
-		[self setPView:[[PieceView alloc] initWithFrame:frame Image:imageName AndHealthColor:color]];
+		CGRect frame = CGRectMake(FIRST_COLUMN_X + (column * TILE_SIZE),
+								  FIRST_COLUMN_Y + (row * TILE_SIZE),
+								  TILE_SIZE,
+								  TILE_SIZE);
+
+		[self setPieceV:[[PieceView alloc] initWithFrame:frame Image:imageName AndHealthColor:color]];
 
 		[self setPiece:piece];
 	}
@@ -33,7 +39,7 @@
 {
     [super viewDidLoad];
 
-	[self setView:[self PView]];
+	[self setView:[self PieceV]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,21 +50,21 @@
 
 - (void)setHealthBarColor:(UIColor *)color
 {
-	[[[self PView] PieceHealthBar] setBackgroundColor:color];
+	[[[self PieceV] PieceHealthBar] setBackgroundColor:color];
 }
 
 - (void)setHealthBarLength:(float)currentHealth :(float)maxHealth
 {
 	float newWidth;
 	
-	newWidth = ( currentHealth / maxHealth ) * [[[self PView] PieceHealthBar] frame].size.width;
+	newWidth = ( currentHealth / maxHealth ) * [[[self PieceV] PieceHealthBar] frame].size.width;
 
-	[[[self PView] PieceHealthBar] removeFromSuperview];
-	[[[self PView] PieceHealthBar] setFrame:CGRectMake([[[self PView] PieceHealthBar] frame].origin.x,
-												   [[[self PView] PieceHealthBar] frame].origin.y,
+	[[[self PieceV] PieceHealthBar] removeFromSuperview];
+	[[[self PieceV] PieceHealthBar] setFrame:CGRectMake([[[self PieceV] PieceHealthBar] frame].origin.x,
+												   [[[self PieceV] PieceHealthBar] frame].origin.y,
 												   newWidth,
-												   [[[self PView] PieceHealthBar] frame].size.height)];
-	[[self PView] addSubview:[[self PView] PieceHealthBar]];
+												   [[[self PieceV] PieceHealthBar] frame].size.height)];
+	[[self PieceV] addSubview:[[self PieceV] PieceHealthBar]];
 }
 
 @end

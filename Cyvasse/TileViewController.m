@@ -11,7 +11,7 @@
 
 @interface TileViewController ()
 
-- (TileView *)TileV;
+- (TileImageView *)TileIV;
 
 @property (strong, nonatomic) UIColor *MovementColor;
 @property (strong, nonatomic) UIColor *AttackColor;
@@ -24,7 +24,7 @@
 
 @implementation TileViewController
 
-@synthesize TileV = _TileV;
+@synthesize TileIV = _TileIV;
 @synthesize TapRecognizer;
 
 @synthesize MovementColor = _MovementColor;
@@ -53,7 +53,7 @@
 	self = [super init];
 	if (self)
 	{
-		[self setTileV:[[TileView alloc] initWithFrame:rect]];
+		[self setTileIV:[[TileImageView alloc] initWithFrame:rect]];
 
 		[self setMovementColor:[UIColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.3f]];
 //		[self setMovementColor:[UIColor colorWithRed:0.98f green:0.98f blue:0.6f alpha:0.4f]];
@@ -76,7 +76,7 @@
 {
     [super viewDidLoad];
 
-	[self setView:[self TileV]];
+	[self setView:[self TileIV]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -85,20 +85,20 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (TileView *)TileV
+- (TileImageView *)TileIV
 {
-	if (!_TileV)
+	if (!_TileIV)
 	{
-		_TileV = [[TileView alloc] init];
+		_TileIV = [[TileImageView alloc] init];
 	}
-	return _TileV;
+	return _TileIV;
 }
 
 #pragma mark - Tap Gestures
 
 - (void)tileTapGesture
 {
-	switch ([[self TileV] Passability])
+	switch ([[self TileIV] Passability])
 	{
 		case Plains:
 			[self setTilePassability:Mountain];
@@ -121,37 +121,37 @@
 {
 	[gesture setNumberOfTapsRequired:1];
 	[gesture setNumberOfTouchesRequired:1];
-	[[self TileV] addGestureRecognizer:gesture];
+	[[self TileIV] addGestureRecognizer:gesture];
 	[gesture setDelegate:self];
 }
 
 - (void)removeTapGestureFromTile:(UITapGestureRecognizer *)gesture
 {
-	[[self TileV] removeGestureRecognizer:gesture];
+	[[self TileIV] removeGestureRecognizer:gesture];
 }
 
 #pragma mark - Setters and Getters
 
 - (void)setTilePassability:(Terrain)terrain
 {
-	[[self TileV] setPassability:terrain];
+	[[self TileIV] setPassability:terrain];
 
 	switch (terrain)
 	{
 		case DefaultT:
-			[[self TileV] setBackgroundColor:[UIColor whiteColor]];
+			[[self TileIV] setBackgroundColor:[UIColor whiteColor]];
 			break;
 
 		case Plains:
-			[[self TileV] setBackgroundColor:[self PlainsColor]];
+			[[self TileIV] setBackgroundColor:[self PlainsColor]];
 			break;
 
 		case Mountain:
-			[[self TileV] setBackgroundColor:[self MountainColor]];
+			[[self TileIV] setBackgroundColor:[self MountainColor]];
 			break;
 
 		case River:
-			[[self TileV] setBackgroundColor:[self RiverColor]];
+			[[self TileIV] setBackgroundColor:[self RiverColor]];
 			break;
 
 		default:
@@ -164,19 +164,19 @@
 	switch (highlight)
 	{
 		case DefaultH:
-			[[[self TileV] ColorOverlay] setBackgroundColor:[UIColor clearColor]];
+			[[[self TileIV] ColorOverlay] setBackgroundColor:[UIColor clearColor]];
 			break;
 
 		case UnHighlighted:
-			[[[self TileV] ColorOverlay] setBackgroundColor:[UIColor clearColor]];
+			[[[self TileIV] ColorOverlay] setBackgroundColor:[UIColor clearColor]];
 			break;
 
 		case Movement:
-			[[[self TileV] ColorOverlay] setBackgroundColor:[self MovementColor]];
+			[[[self TileIV] ColorOverlay] setBackgroundColor:[self MovementColor]];
 			break;
 
 		case Attack:
-			[[[self TileV] ColorOverlay] setBackgroundColor:[self AttackColor]];
+			[[[self TileIV] ColorOverlay] setBackgroundColor:[self AttackColor]];
 			break;
 
 		default:
@@ -186,30 +186,30 @@
 
 - (void)setTileOccupied:(TileOccupied)tileOccupied
 {
-	[[self TileV] setOccupied:tileOccupied];
+	[[self TileIV] setOccupied:tileOccupied];
 }
 
 - (void)setTileColumn:(int)column AndRow:(int)row
 {
-	[[self TileV] setColumn:column];
-	[[self TileV] setRow:row];
+	[[self TileIV] setColumn:column];
+	[[self TileIV] setRow:row];
 }
 
 - (int)getTileColumn
 {
-	return [[self TileV] Column];
+	return [[self TileIV] Column];
 }
 
 - (int)getTileRow
 {
-	return [[self TileV] Row];
+	return [[self TileIV] Row];
 }
 
 #pragma mark -
 
 - (TileOccupied)checkTileOccupied
 {
-	return [[self TileV] Occupied];
+	return [[self TileIV] Occupied];
 }
 
 #pragma mark -

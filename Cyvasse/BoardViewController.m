@@ -69,7 +69,7 @@
 			[[[self Tiles] objectAtIndex:i] addObject:TVC];
 
 			[self addChildViewController:TVC];
-			[[self view] addSubview:[TVC TileV]];
+			[[self view] addSubview:[TVC TileIV]];
 		}
 	}
 
@@ -292,7 +292,7 @@
 
 - (int)calculateMovementCostToCoord:(CoordinateModel *)coordinate WithPiece:(Piece *)piece
 {
-	if ([[[[[self Tiles] objectAtIndex:[coordinate column]] objectAtIndex:[coordinate row]] TileV] Passability] == Plains)
+	if ([[[[[self Tiles] objectAtIndex:[coordinate column]] objectAtIndex:[coordinate row]] TileIV] Passability] == Plains)
 	{
 		return 1;
 	}
@@ -307,7 +307,7 @@
 	}
 	else if ([piece Capability] == Ahorse)
 	{
-		if ([[[[[self Tiles] objectAtIndex:[coordinate column]] objectAtIndex:[coordinate row]] TileV] Passability] == River)
+		if ([[[[[self Tiles] objectAtIndex:[coordinate column]] objectAtIndex:[coordinate row]] TileIV] Passability] == River)
 		{
 			return 2;
 		}
@@ -318,7 +318,7 @@
 	}
 	else if ([piece Capability] == Wheeled)
 	{
-		if ([[[[[self Tiles] objectAtIndex:[coordinate column]] objectAtIndex:[coordinate row]] TileV] Passability] == River)
+		if ([[[[[self Tiles] objectAtIndex:[coordinate column]] objectAtIndex:[coordinate row]] TileIV] Passability] == River)
 		{
 			return 2;
 		}

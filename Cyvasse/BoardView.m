@@ -7,7 +7,7 @@
 //
 
 #import "BoardView.h"
-#import "TileView.h"
+#import "TileImageView.h"
 #import "GlobalConstants.h"
 
 @implementation BoardView

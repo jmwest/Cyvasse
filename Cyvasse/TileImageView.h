@@ -21,7 +21,7 @@ typedef enum {
 	UnOccupied
 } TileOccupied;
 
-@interface TileView : UIView
+@interface TileImageView : UIImageView
 
 @property (assign, nonatomic) Terrain Passability;
 @property (assign, nonatomic) TileOccupied Occupied;

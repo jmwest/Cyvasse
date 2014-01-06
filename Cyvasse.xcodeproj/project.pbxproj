@@ -32,7 +32,7 @@
 		270A8DEF187774B100B762A0 /* Spearman.m in Sources */ = {isa = PBXBuildFile; fileRef = 270A8DDE187774B100B762A0 /* Spearman.m */; };
 		270A8DF0187774B100B762A0 /* Trebuchet.m in Sources */ = {isa = PBXBuildFile; fileRef = 270A8DE0187774B100B762A0 /* Trebuchet.m */; };
 		270A8DF518777E3000B762A0 /* PieceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 270A8DF418777E3000B762A0 /* PieceViewController.m */; };
-		27723EA11877E4B400556BF9 /* TileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27723EA01877E4B400556BF9 /* TileView.m */; };
+		27723EA11877E4B400556BF9 /* TileImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27723EA01877E4B400556BF9 /* TileImageView.m */; };
 		27723EA41877E71300556BF9 /* TileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27723EA31877E71300556BF9 /* TileViewController.m */; };
 		27723EA61877ED9B00556BF9 /* RedDragon.png in Resources */ = {isa = PBXBuildFile; fileRef = 27723EA51877ED9B00556BF9 /* RedDragon.png */; };
 		277D547018789FE700D23813 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 277D546F18789FE700D23813 /* GameKit.framework */; };
@@ -89,8 +89,8 @@
 		270A8DE0187774B100B762A0 /* Trebuchet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Trebuchet.m; sourceTree = "<group>"; };
 		270A8DF318777E3000B762A0 /* PieceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PieceViewController.h; sourceTree = "<group>"; };
 		270A8DF418777E3000B762A0 /* PieceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PieceViewController.m; sourceTree = "<group>"; };
-		27723E9F1877E47700556BF9 /* TileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileView.h; sourceTree = "<group>"; };
-		27723EA01877E4B400556BF9 /* TileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileView.m; sourceTree = "<group>"; };
+		27723E9F1877E47700556BF9 /* TileImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileImageView.h; sourceTree = "<group>"; };
+		27723EA01877E4B400556BF9 /* TileImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileImageView.m; sourceTree = "<group>"; };
 		27723EA21877E71300556BF9 /* TileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileViewController.h; sourceTree = "<group>"; };
 		27723EA31877E71300556BF9 /* TileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileViewController.m; sourceTree = "<group>"; };
 		27723EA51877ED9B00556BF9 /* RedDragon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedDragon.png; sourceTree = "<group>"; };
@@ -259,8 +259,8 @@
 			children = (
 				27723EA21877E71300556BF9 /* TileViewController.h */,
 				27723EA31877E71300556BF9 /* TileViewController.m */,
-				27723E9F1877E47700556BF9 /* TileView.h */,
-				27723EA01877E4B400556BF9 /* TileView.m */,
+				27723E9F1877E47700556BF9 /* TileImageView.h */,
+				27723EA01877E4B400556BF9 /* TileImageView.m */,
 			);
 			name = TileViews;
 			sourceTree = "<group>";
@@ -358,7 +358,7 @@
 				270A8DE5187774B100B762A0 /* Heavy Horse.m in Sources */,
 				270A8DE7187774B100B762A0 /* King.m in Sources */,
 				27A3AB32187A08F6009D3A9B /* CoordinateModel.m in Sources */,
-				27723EA11877E4B400556BF9 /* TileView.m in Sources */,
+				27723EA11877E4B400556BF9 /* TileImageView.m in Sources */,
 				277D54771878B10400D23813 /* BoardViewController.m in Sources */,
 				27723EA41877E71300556BF9 /* TileViewController.m in Sources */,
 				270A8DE8187774B100B762A0 /* Light Horse.m in Sources */,

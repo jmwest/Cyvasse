@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 John West. All rights reserved.
 //
 
-#import "TileView.h"
+#import "TileImageView.h"
 
-@implementation TileView
+@implementation TileImageView
 
 @synthesize Passability = _Passability;
 @synthesize Occupied = _Occupied;

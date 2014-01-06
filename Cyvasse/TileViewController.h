@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "TileView.h"
+#import "TileImageView.h"
 
 typedef enum {
 	DefaultH,
@@ -36,7 +36,7 @@ typedef enum {
 
 - (TileOccupied)checkTileOccupied;
 
-@property (strong, nonatomic) TileView *TileV;
+@property (strong, nonatomic) TileImageView *TileIV;
 
 @property (strong, nonatomic) UITapGestureRecognizer *TapRecognizer;
 

@@ -20,6 +20,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+		[self setUserInteractionEnabled:YES];
         [self setPassability:DefaultT];
 		[self setOccupied:DefaultTO];
 		[self setColorOverlay:[[UIView alloc] initWithFrame:CGRectMake(0.0f,

@@ -16,9 +16,9 @@
 @property (strong, nonatomic) UIColor *MovementColor;
 @property (strong, nonatomic) UIColor *AttackColor;
 
-@property (strong, nonatomic) UIColor *PlainsColor;
-@property (strong, nonatomic) UIColor *MountainColor;
-@property (strong, nonatomic) UIColor *RiverColor;
+@property (strong, nonatomic) UIImage *PlainsImage;
+@property (strong, nonatomic) UIImage *MountainImage;
+@property (strong, nonatomic) UIImage *RiverImage;
 
 @end
 
@@ -29,9 +29,9 @@
 
 @synthesize MovementColor = _MovementColor;
 @synthesize AttackColor = _AttackColor;
-@synthesize PlainsColor = _PlainsColor;
-@synthesize MountainColor = _MountainColor;
-@synthesize RiverColor = _RiverColor;
+@synthesize PlainsImage = _PlainsImage;
+@synthesize MountainImage = _MountainImage;
+@synthesize RiverImage = _RiverImage;
 
 #pragma mark - Init
 
@@ -54,15 +54,16 @@
 	if (self)
 	{
 		[self setTileIV:[[TileImageView alloc] initWithFrame:rect]];
+		[self setView:[self TileIV]];
 
 		[self setMovementColor:[UIColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.3f]];
 //		[self setMovementColor:[UIColor colorWithRed:0.98f green:0.98f blue:0.6f alpha:0.4f]];
 //		[self setMovementColor:[UIColor colorWithRed:0.69f green:0.769f blue:0.8706f alpha:0.3f]];
 		[self setAttackColor:[UIColor colorWithRed:0.94f green:0.5f blue:0.5f alpha:0.3f]];
 
-		[self setPlainsColor:[UIColor greenColor]];
-		[self setMountainColor:[UIColor darkGrayColor]];
-		[self setRiverColor:[UIColor blueColor]];
+		[self setPlainsImage:[UIImage imageNamed:@"Plains"]];
+		[self setMountainImage:[UIImage imageNamed:@"Mountain"]];
+		[self setRiverImage:[UIImage imageNamed:@"River"]];
 
 		[self setTapRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tileTapGesture)]];
 		[self addTapGestureToTile:[self TapRecognizer]];
@@ -143,15 +144,15 @@
 			break;
 
 		case Plains:
-			[[self TileIV] setBackgroundColor:[self PlainsColor]];
+			[[self TileIV] setImage:[self PlainsImage]];
 			break;
 
 		case Mountain:
-			[[self TileIV] setBackgroundColor:[self MountainColor]];
+			[[self TileIV] setImage:[self MountainImage]];
 			break;
 
 		case River:
-			[[self TileIV] setBackgroundColor:[self RiverColor]];
+			[[self TileIV] setImage:[self RiverImage]];
 			break;
 
 		default:

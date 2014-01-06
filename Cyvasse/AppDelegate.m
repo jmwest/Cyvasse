@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 John West. All rights reserved.
 //
 
+#import "TestFlight.h"
+
 #import "AppDelegate.h"
 #import "BoardViewController.h"
 #import "Dragon.h"
@@ -28,6 +30,10 @@
 
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+
+	[TestFlight setDeviceIdentifier:(NSString *)[[UIDevice currentDevice] identifierForVendor]];
+	[TestFlight takeOff:@"934dfd97-305a-4dd5-bc61-d7c461ada26e"];
+
     return YES;
 }
 

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "TileImageView.h"
+//#import "PieceImportHeader.h"
 
 typedef enum {
 	DefaultH,
@@ -16,6 +17,12 @@ typedef enum {
 	Movement,
 	Attack
 } Highlight;
+
+//@protocol TileSelectedDelegate <NSObject>
+//
+//- (void)TileHasBeenSelectedAt:(CoordinateModel *)coordinate;
+//
+//@end
 
 @interface TileViewController : UIViewController <UIGestureRecognizerDelegate>
 

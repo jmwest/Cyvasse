@@ -21,6 +21,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+		[self setUserInteractionEnabled:YES];
         [self setPieceImage:[[UIImageView alloc] initWithFrame:CGRectMake(0.0f,
 																		  0.0f,
 																		  frame.size.width,

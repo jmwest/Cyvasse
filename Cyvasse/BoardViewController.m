@@ -12,10 +12,16 @@
 
 @interface BoardViewController ()
 
+- (NSMutableArray *)RecursivelyAddTilesAndReturnArray:(NSMutableArray *)tileArray Coord:(CoordinateModel *)coordinate Piece:(Piece *)piece MovesLeft:(int)movesLeft;
+
+- (void)RemoveTapGesturesFromTiles:(NSMutableArray *)tileArray;
+
 - (CoordinateModel *)getLeftCoord:(CoordinateModel *)coordinate;
 - (CoordinateModel *)getRightCoord:(CoordinateModel *)coordinate;
 - (CoordinateModel *)getUpCoord:(CoordinateModel *)coordinate;
 - (CoordinateModel *)getDownCoord:(CoordinateModel *)coordinate;
+
+- (void)combineArray:(NSMutableArray *)arrayOne WithArray:(NSMutableArray *)arrayTwo;
 
 - (BOOL)checkCoordCanGoLeft:(CoordinateModel *)coordinate;
 - (BOOL)checkCoordCanGoRight:(CoordinateModel *)coordinate;
@@ -28,12 +34,16 @@
 
 - (BOOL)coordCompare:(CoordinateModel *)op1 :(CoordinateModel *)op2;
 
+@property (strong, nonatomic) NSMutableArray *MoveableCoords;
+
 @end
 
 @implementation BoardViewController
 
 @synthesize Tiles = _Tiles;
 @synthesize BoardV = _BoardV;
+
+@synthesize MoveableCoords = _MoveableCoords;
 
 - (void)viewDidLoad
 {
@@ -123,6 +133,8 @@
 		[acquisitions addObjectsFromArray:temp];
 	}
 
+	[self setMoveableCoords:acquisitions];
+
 	TileViewController *TVC;
 	for (int j = 1; j < [acquisitions count]; j++)
 	{
@@ -130,6 +142,8 @@
 
 		[TVC setTileOverlay:highlight];
 	}
+
+	[self RemoveTapGesturesFromTiles:[self Tiles]];
 }
 
 - (NSMutableArray *)RecursivelyAddTilesAndReturnArray:(NSMutableArray *)tileArray Coord:(CoordinateModel *)coordinate Piece:(Piece *)piece MovesLeft:(int)movesLeft
@@ -162,39 +176,24 @@
 		}
 	}
 
-	for (int i = 0; i < [tempR count]; i++)
-	{
-		if ([self checkArray:temp DoesNotContainCoord:[tempR objectAtIndex:i]])
-		{
-			[temp addObject:[tempR objectAtIndex:i]];
-		}
-	}
-
-	for (int i = 0; i < [tempL count]; i++)
-	{
-		if ([self checkArray:temp DoesNotContainCoord:[tempL objectAtIndex:i]])
-		{
-			[temp addObject:[tempL objectAtIndex:i]];
-		}
-	}
-
-	for (int i = 0; i < [tempD count]; i++)
-	{
-		if ([self checkArray:temp DoesNotContainCoord:[tempD objectAtIndex:i]])
-		{
-			[temp addObject:[tempD objectAtIndex:i]];
-		}
-	}
-
-	for (int i = 0; i < [tempU count]; i++)
-	{
-		if ([self checkArray:temp DoesNotContainCoord:[tempU objectAtIndex:i]])
-		{
-			[temp addObject:[tempU objectAtIndex:i]];
-		}
-	}
+	[self combineArray:temp WithArray:tempR];
+	[self combineArray:temp WithArray:tempL];
+	[self combineArray:temp WithArray:tempD];
+	[self combineArray:temp WithArray:tempU];
 
 	return temp;
+}
+
+- (void)RemoveTapGesturesFromTiles:(NSMutableArray *)tileArray
+{
+	for (int i = 0; i < [tileArray count]; i++)
+	{
+		for (int j = 0; j < [[tileArray objectAtIndex:i] count]; j++)
+		{
+			TileViewController *temp = [[tileArray objectAtIndex:i] objectAtIndex:j];
+			[temp removeTapGestureFromTile:[temp TapRecognizer]];
+		}
+	}
 }
 
 - (CoordinateModel *)getLeftCoord:(CoordinateModel *)coordinate
@@ -217,6 +216,16 @@
 	return [[CoordinateModel alloc] initWithColumn:[coordinate column] AndRow:([coordinate row] + 1)];
 }
 
+- (void)combineArray:(NSMutableArray *)arrayOne WithArray:(NSMutableArray *)arrayTwo
+{
+	for (int i = 0; i < [arrayTwo count]; i++)
+	{
+		if ([self checkArray:arrayOne DoesNotContainCoord:[arrayTwo objectAtIndex:i]])
+		{
+			[arrayOne addObject:[arrayTwo objectAtIndex:i]];
+		}
+	}
+}
 
 - (BOOL)checkCoordCanGoLeft:(CoordinateModel *)coordinate
 {

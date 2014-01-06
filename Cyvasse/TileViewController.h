@@ -22,9 +22,9 @@ typedef enum {
 - (id)initWithColumn:(int)column AndRow:(int)row;
 - (id)initWithFrame:(CGRect)rect;
 
-- (void)tileTapGesture:(UITapGestureRecognizer *)gesture;
-- (void)addTapGestureToTile;
-- (void)removeTapGestureFromTile;
+- (void)tileTapGesture;
+- (void)addTapGestureToTile:(UITapGestureRecognizer *)gesture;
+- (void)removeTapGestureFromTile:(UITapGestureRecognizer *)gesture;
 
 - (void)setTilePassability:(Terrain)terrain;
 - (void)setTileOverlay:(Highlight)highlight;

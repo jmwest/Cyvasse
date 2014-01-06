@@ -21,7 +21,7 @@
 		[self setAttackRange:1];
 		[self setAttackWidth:1];
 		[self setDefense:2];
-		[self setMovementLength:3];
+		[self setMovementLength:2];
 		[self setCapability:Ahorse];
 	}
 	return self;

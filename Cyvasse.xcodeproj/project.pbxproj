@@ -38,8 +38,11 @@
 		277D547018789FE700D23813 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 277D546F18789FE700D23813 /* GameKit.framework */; };
 		277D54741878A13F00D23813 /* BoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 277D54731878A13F00D23813 /* BoardView.m */; };
 		277D54771878B10400D23813 /* BoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 277D54761878B10400D23813 /* BoardViewController.m */; };
-		277D547B1879082300D23813 /* BlackElephant.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 277D54791879082300D23813 /* BlackElephant.jpg */; };
 		277D547C1879082300D23813 /* RedElephant.png in Resources */ = {isa = PBXBuildFile; fileRef = 277D547A1879082300D23813 /* RedElephant.png */; };
+		27A1D190187B41C7009BF517 /* BlackElephant.png in Resources */ = {isa = PBXBuildFile; fileRef = 27A1D18C187B41C7009BF517 /* BlackElephant.png */; };
+		27A1D191187B41C7009BF517 /* Mountain.png in Resources */ = {isa = PBXBuildFile; fileRef = 27A1D18D187B41C7009BF517 /* Mountain.png */; };
+		27A1D192187B41C7009BF517 /* Plains.png in Resources */ = {isa = PBXBuildFile; fileRef = 27A1D18E187B41C7009BF517 /* Plains.png */; };
+		27A1D193187B41C7009BF517 /* River.png in Resources */ = {isa = PBXBuildFile; fileRef = 27A1D18F187B41C7009BF517 /* River.png */; };
 		27A3AB32187A08F6009D3A9B /* CoordinateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A3AB31187A08F6009D3A9B /* CoordinateModel.m */; };
 /* End PBXBuildFile section */
 
@@ -97,9 +100,12 @@
 		277D54751878B10400D23813 /* BoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardViewController.h; sourceTree = "<group>"; };
 		277D54761878B10400D23813 /* BoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardViewController.m; sourceTree = "<group>"; };
 		277D54781878C34300D23813 /* GlobalConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalConstants.h; sourceTree = "<group>"; };
-		277D54791879082300D23813 /* BlackElephant.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BlackElephant.jpg; sourceTree = "<group>"; };
 		277D547A1879082300D23813 /* RedElephant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedElephant.png; sourceTree = "<group>"; };
 		277D547D18791ED500D23813 /* PieceImportHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PieceImportHeader.h; sourceTree = "<group>"; };
+		27A1D18C187B41C7009BF517 /* BlackElephant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BlackElephant.png; sourceTree = "<group>"; };
+		27A1D18D187B41C7009BF517 /* Mountain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Mountain.png; sourceTree = "<group>"; };
+		27A1D18E187B41C7009BF517 /* Plains.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Plains.png; sourceTree = "<group>"; };
+		27A1D18F187B41C7009BF517 /* River.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = River.png; sourceTree = "<group>"; };
 		27A3AB30187A08F6009D3A9B /* CoordinateModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoordinateModel.h; sourceTree = "<group>"; };
 		27A3AB31187A08F6009D3A9B /* CoordinateModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoordinateModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -182,8 +188,11 @@
 		270A8DCB187774B100B762A0 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				27A1D18C187B41C7009BF517 /* BlackElephant.png */,
+				27A1D18D187B41C7009BF517 /* Mountain.png */,
+				27A1D18E187B41C7009BF517 /* Plains.png */,
+				27A1D18F187B41C7009BF517 /* River.png */,
 				270A8DCC187774B100B762A0 /* BlackDragon.png */,
-				277D54791879082300D23813 /* BlackElephant.jpg */,
 				27723EA51877ED9B00556BF9 /* RedDragon.png */,
 				277D547A1879082300D23813 /* RedElephant.png */,
 			);
@@ -319,12 +328,15 @@
 			files = (
 				270A8DAC1877742F00B762A0 /* InfoPlist.strings in Resources */,
 				270A8DB41877742F00B762A0 /* Default.png in Resources */,
+				27A1D190187B41C7009BF517 /* BlackElephant.png in Resources */,
 				27723EA61877ED9B00556BF9 /* RedDragon.png in Resources */,
+				27A1D192187B41C7009BF517 /* Plains.png in Resources */,
 				270A8DB61877742F00B762A0 /* Default@2x.png in Resources */,
 				270A8DB81877742F00B762A0 /* Default-568h@2x.png in Resources */,
-				277D547B1879082300D23813 /* BlackElephant.jpg in Resources */,
 				277D547C1879082300D23813 /* RedElephant.png in Resources */,
 				270A8DE6187774B100B762A0 /* BlackDragon.png in Resources */,
+				27A1D191187B41C7009BF517 /* Mountain.png in Resources */,
+				27A1D193187B41C7009BF517 /* River.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

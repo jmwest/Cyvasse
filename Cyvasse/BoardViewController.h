@@ -11,7 +11,7 @@
 #import "BoardView.h"
 #import "PieceImportHeader.h"
 
-@interface BoardViewController : UIViewController <MovePieceDelegate>
+@interface BoardViewController : UIViewController <PieceDelegate>
 
 @property (strong, nonatomic) NSMutableArray *Tiles;
 @property (strong, nonatomic) BoardView *BoardV;

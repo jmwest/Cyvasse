@@ -12,6 +12,22 @@
 
 @interface BoardViewController ()
 
+- (CoordinateModel *)getLeftCoord:(CoordinateModel *)coordinate;
+- (CoordinateModel *)getRightCoord:(CoordinateModel *)coordinate;
+- (CoordinateModel *)getUpCoord:(CoordinateModel *)coordinate;
+- (CoordinateModel *)getDownCoord:(CoordinateModel *)coordinate;
+
+- (BOOL)checkCoordCanGoLeft:(CoordinateModel *)coordinate;
+- (BOOL)checkCoordCanGoRight:(CoordinateModel *)coordinate;
+- (BOOL)checkCoordCanGoUp:(CoordinateModel *)coordinate;
+- (BOOL)checkCoordCanGoDown:(CoordinateModel *)coordinate;
+- (BOOL)checkCoord:(CoordinateModel *)coordinate CanBeTraversed:(Piece *)piece WithMovesLeft:(int)moves;
+- (BOOL)checkArray:(NSArray *)array DoesNotContainCoord:(CoordinateModel *)coord;
+
+- (int)calculateMovementCostToCoord:(CoordinateModel *)coordinate WithPiece:(Piece *)piece;
+
+- (BOOL)coordCompare:(CoordinateModel *)op1 :(CoordinateModel *)op2;
+
 @end
 
 @implementation BoardViewController
@@ -50,14 +66,272 @@
 	Dragon *dragon = [[Dragon alloc] init];
 	PieceViewController *dragonController = [[PieceViewController alloc] initWithImage:@"BlackDragon" Piece:dragon Column:9 Row:9 AndColor:[UIColor blueColor]];
 
+	Elephant *elephant = [[Elephant alloc] init];
+	PieceViewController *elephantController = [[PieceViewController alloc] initWithImage:@"RedElephant" Piece:elephant Column:2 Row:7 AndColor:[UIColor redColor]];
+
 	[self addChildViewController:dragonController];
 	[[self BoardV] addSubview:[dragonController PieceV]];
+
+	[self addChildViewController:elephantController];
+	[[self BoardV] addSubview:[elephantController PieceV]];
+
+	[dragonController setDelegate:self];
+	[elephantController setDelegate:self];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)AllowPieceToBe:(Highlight)highlight WithCoordinate:(CoordinateModel *)coordinate AndPiece:(Piece *)piece
+{
+	int moves = [piece MovementLength];
+
+	NSMutableArray *stack = [[NSMutableArray alloc] init];
+
+	CoordinateModel *coord;
+	if ([self checkCoordCanGoDown:coordinate])
+	{
+		coord = [[CoordinateModel alloc] initWithColumn:[coordinate column] AndRow:([coordinate row] + 1)];
+		[stack addObject:coord];
+	}
+	if ([self checkCoordCanGoUp:coordinate])
+	{
+		coord = [[CoordinateModel alloc] initWithColumn:[coordinate column] AndRow:([coordinate row] - 1)];
+		[stack addObject:coord];
+	}
+	if ([self checkCoordCanGoLeft:coordinate])
+	{
+		coord = [[CoordinateModel alloc] initWithColumn:([coordinate column] - 1) AndRow:[coordinate row]];
+		[stack addObject:coord];
+	}
+	if ([self checkCoordCanGoRight:coordinate])
+	{
+		coord = [[CoordinateModel alloc] initWithColumn:([coordinate column] + 1) AndRow:[coordinate row]];
+		[stack addObject:coord];
+	}
+
+	NSMutableArray *acquisitions = [[NSMutableArray alloc] initWithObjects:coordinate, nil];
+	NSMutableArray *temp;
+
+	for (int i = 0; i < [stack count]; i++)
+	{
+		temp = [self RecursivelyAddTilesAndReturnArray:[self Tiles] Coord:[stack objectAtIndex:i] Piece:piece MovesLeft:moves];
+
+		[acquisitions addObjectsFromArray:temp];
+	}
+
+	TileViewController *TVC;
+	for (int j = 1; j < [acquisitions count]; j++)
+	{
+		TVC = [[[self Tiles] objectAtIndex:[[acquisitions objectAtIndex:j] column]] objectAtIndex:[[acquisitions objectAtIndex:j] row]];
+
+		[TVC setTileOverlay:highlight];
+	}
+}
+
+- (NSMutableArray *)RecursivelyAddTilesAndReturnArray:(NSMutableArray *)tileArray Coord:(CoordinateModel *)coordinate Piece:(Piece *)piece MovesLeft:(int)movesLeft
+{
+	NSMutableArray *temp = [[NSMutableArray alloc] init];
+	NSMutableArray *tempR = [[NSMutableArray alloc] init];
+	NSMutableArray *tempL = [[NSMutableArray alloc] init];
+	NSMutableArray *tempD = [[NSMutableArray alloc] init];
+	NSMutableArray *tempU = [[NSMutableArray alloc] init];
+
+	if ([self checkCoord:coordinate CanBeTraversed:piece WithMovesLeft:movesLeft])
+	{
+		[temp addObject:coordinate];
+
+		if ([self checkCoordCanGoRight:coordinate])
+		{
+			tempR = [self RecursivelyAddTilesAndReturnArray:tileArray Coord:[self getRightCoord:coordinate] Piece:piece MovesLeft:(movesLeft - [self calculateMovementCostToCoord:coordinate WithPiece:piece])];
+		}
+		if ([self checkCoordCanGoLeft:coordinate])
+		{
+			tempL = [self RecursivelyAddTilesAndReturnArray:tileArray Coord:[self getLeftCoord:coordinate] Piece:piece MovesLeft:(movesLeft - [self calculateMovementCostToCoord:coordinate WithPiece:piece])];
+		}
+		if ([self checkCoordCanGoDown:coordinate])
+		{
+			tempD = [self RecursivelyAddTilesAndReturnArray:tileArray Coord:[self getDownCoord:coordinate] Piece:piece MovesLeft:(movesLeft - [self calculateMovementCostToCoord:coordinate WithPiece:piece])];
+		}
+		if ([self checkCoordCanGoUp:coordinate])
+		{
+			tempU = [self RecursivelyAddTilesAndReturnArray:tileArray Coord:[self getUpCoord:coordinate] Piece:piece MovesLeft:(movesLeft - [self calculateMovementCostToCoord:coordinate WithPiece:piece])];
+		}
+	}
+
+	for (int i = 0; i < [tempR count]; i++)
+	{
+		if ([self checkArray:temp DoesNotContainCoord:[tempR objectAtIndex:i]])
+		{
+			[temp addObject:[tempR objectAtIndex:i]];
+		}
+	}
+
+	for (int i = 0; i < [tempL count]; i++)
+	{
+		if ([self checkArray:temp DoesNotContainCoord:[tempL objectAtIndex:i]])
+		{
+			[temp addObject:[tempL objectAtIndex:i]];
+		}
+	}
+
+	for (int i = 0; i < [tempD count]; i++)
+	{
+		if ([self checkArray:temp DoesNotContainCoord:[tempD objectAtIndex:i]])
+		{
+			[temp addObject:[tempD objectAtIndex:i]];
+		}
+	}
+
+	for (int i = 0; i < [tempU count]; i++)
+	{
+		if ([self checkArray:temp DoesNotContainCoord:[tempU objectAtIndex:i]])
+		{
+			[temp addObject:[tempU objectAtIndex:i]];
+		}
+	}
+
+	return temp;
+}
+
+- (CoordinateModel *)getLeftCoord:(CoordinateModel *)coordinate
+{
+	return [[CoordinateModel alloc] initWithColumn:([coordinate column] - 1) AndRow:[coordinate row]];
+}
+
+- (CoordinateModel *)getRightCoord:(CoordinateModel *)coordinate
+{
+	return [[CoordinateModel alloc] initWithColumn:([coordinate column] + 1) AndRow:[coordinate row]];
+}
+
+- (CoordinateModel *)getUpCoord:(CoordinateModel *)coordinate
+{
+	return [[CoordinateModel alloc] initWithColumn:[coordinate column] AndRow:([coordinate row] - 1)];
+}
+
+- (CoordinateModel *)getDownCoord:(CoordinateModel *)coordinate
+{
+	return [[CoordinateModel alloc] initWithColumn:[coordinate column] AndRow:([coordinate row] + 1)];
+}
+
+
+- (BOOL)checkCoordCanGoLeft:(CoordinateModel *)coordinate
+{
+	if ([coordinate column] > 0)
+	{
+		return true;
+	}
+	
+	return false;
+}
+
+- (BOOL)checkCoordCanGoRight:(CoordinateModel *)coordinate
+{
+	if ([coordinate column] < 9)
+	{
+		return true;
+	}
+	
+	return false;
+}
+
+- (BOOL)checkCoordCanGoUp:(CoordinateModel *)coordinate
+{
+	if ([coordinate row] > 0)
+	{
+		return true;
+	}
+
+	return false;
+}
+
+- (BOOL)checkCoordCanGoDown:(CoordinateModel *)coordinate
+{
+	if ([coordinate row] < 9)
+	{
+		return true;
+	}
+	
+	return false;
+}
+
+- (BOOL)checkCoord:(CoordinateModel *)coordinate CanBeTraversed:(Piece *)piece WithMovesLeft:(int)moves
+{
+	if (moves >= [self calculateMovementCostToCoord:coordinate WithPiece:piece])
+	{
+		return true;
+	}
+
+	return false;
+}
+
+- (BOOL)checkArray:(NSArray *)array DoesNotContainCoord:(CoordinateModel *)coord
+{
+	for (int i = 0; i < [array count]; i++)
+	{
+		if ([self coordCompare:coord :[array objectAtIndex:i]])
+		{
+			return false;
+		}
+	}
+
+	return true;
+}
+
+- (int)calculateMovementCostToCoord:(CoordinateModel *)coordinate WithPiece:(Piece *)piece
+{
+	if ([[[[[self Tiles] objectAtIndex:[coordinate column]] objectAtIndex:[coordinate row]] TileV] Passability] == Plains)
+	{
+		return 1;
+	}
+
+	if ([piece Capability] == Airborne)
+	{
+		return 1;
+	}
+	else if ([piece Capability] == OnFoot)
+	{
+		return 2;
+	}
+	else if ([piece Capability] == Ahorse)
+	{
+		if ([[[[[self Tiles] objectAtIndex:[coordinate column]] objectAtIndex:[coordinate row]] TileV] Passability] == River)
+		{
+			return 2;
+		}
+		else
+		{
+			return [piece MovementLength] + 1;
+		}
+	}
+	else if ([piece Capability] == Wheeled)
+	{
+		if ([[[[[self Tiles] objectAtIndex:[coordinate column]] objectAtIndex:[coordinate row]] TileV] Passability] == River)
+		{
+			return 2;
+		}
+		else
+		{
+			return [piece MovementLength] + 1;
+		}
+	}
+	else
+	{
+		return [piece MovementLength] + 1;
+	}
+}
+
+- (BOOL)coordCompare:(CoordinateModel *)op1 :(CoordinateModel *)op2
+{
+	if (([op1 column] == [op2 column]) && ([op1 row] == [op2 row]))
+	{
+		return true;
+	}
+
+	return false;
 }
 
 @end

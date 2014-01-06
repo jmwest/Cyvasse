@@ -22,7 +22,7 @@
 		[self setAttackWidth:1];
 		[self setDefense:2];
 		[self setMovementLength:3];
-		[self setCapability:OnFoot];
+		[self setCapability:Ahorse];
 	}
 	return self;
 }

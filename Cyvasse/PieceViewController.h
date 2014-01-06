@@ -10,16 +10,12 @@
 
 #import "PieceView.h"
 #import "PieceImportHeader.h"
+#import "CoordinateModel.h"
+#import "TileViewController.h"
 
-@protocol MovePieceDelegate <NSObject>
+@protocol PieceDelegate <NSObject>
 
-- (void)AllowPieceToBeMoved:(CoordinateModel *)coordinate;
-
-@end
-
-@protocol AttackPieceDelegate <NSObject>
-
-- (void)AllowPieceToAttack:(CoordinateModel *)coordinate;
+- (void)AllowPieceToBe:(Highlight)highlight WithCoordinate:(CoordinateModel *)coordinate AndPiece:(Piece *)piece;
 
 @end
 
@@ -37,7 +33,6 @@
 @property (strong, nonatomic) Piece *piece;
 @property (strong, nonatomic) UITapGestureRecognizer *TapGesture;
 
-@property (weak, nonatomic) id <MovePieceDelegate> moveDelegate;
-@property (weak, nonatomic) id <AttackPieceDelegate> attackDelegate;
+@property (weak, nonatomic) id <PieceDelegate> delegate;
 
 @end

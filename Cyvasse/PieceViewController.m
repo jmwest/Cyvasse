@@ -11,6 +11,8 @@
 
 @interface PieceViewController ()
 
+- (void)addTapGesture;
+
 @end
 
 @implementation PieceViewController
@@ -33,7 +35,7 @@
 
 		[self setPiece:piece];
 
-		[self setTapGesture:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(bringUpMovementBlocks)]];
+		[self addTapGesture];
 	}
 	return self;
 }
@@ -74,15 +76,27 @@
 
 #pragma mark -
 
+- (void)addTapGesture
+{
+	[self setTapGesture:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(bringUpMovementBlocks)]];
+	[[self TapGesture] setNumberOfTapsRequired:1];
+	[[self TapGesture] setNumberOfTouchesRequired:1];
+	[[self PieceV] addGestureRecognizer:[self TapGesture]];
+	[[self TapGesture] setDelegate:self];
+}
+
+#pragma mark -
+
 - (void)bringUpMovementBlocks
 {
 	CoordinateModel *CM = [[CoordinateModel alloc] initWithColumn:[[self PieceV] column] AndRow:[[self PieceV] row]];
-	[[self moveDelegate] AllowPieceToBeMoved:CM];
+	[[self delegate] AllowPieceToBe:Movement WithCoordinate:CM AndPiece:[self piece]];
 }
 
 - (void)bringUpAttackBlocks
 {
-	
+	CoordinateModel *CM = [[CoordinateModel alloc] initWithColumn:[[self PieceV] column] AndRow:[[self PieceV] row]];
+	[[self delegate] AllowPieceToBe:Attack WithCoordinate:CM AndPiece:[self piece]];
 }
 
 @end

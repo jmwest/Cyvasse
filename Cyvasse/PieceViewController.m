@@ -90,13 +90,32 @@
 - (void)bringUpMovementBlocks
 {
 	CoordinateModel *CM = [[CoordinateModel alloc] initWithColumn:[[self PieceV] column] AndRow:[[self PieceV] row]];
-	[[self delegate] AllowPieceToBe:Movement WithCoordinate:CM AndPiece:[self piece]];
+	[[self delegate] AllowPieceToBe:Movement WithCoordinate:CM AndPieceViewController:self];
 }
 
 - (void)bringUpAttackBlocks
 {
 	CoordinateModel *CM = [[CoordinateModel alloc] initWithColumn:[[self PieceV] column] AndRow:[[self PieceV] row]];
-	[[self delegate] AllowPieceToBe:Attack WithCoordinate:CM AndPiece:[self piece]];
+	[[self delegate] AllowPieceToBe:Attack WithCoordinate:CM AndPieceViewController:self];
+}
+
+- (void)movePieceAlongPath:(NSMutableArray *)path
+{
+	CoordinateModel *coordinate;
+	for (int i = 0; i < [path count]; i++)
+	{
+		coordinate = [path objectAtIndex:i];
+
+		[UIView animateWithDuration:0.5f animations:^{
+			[[self PieceV] setFrame:CGRectMake(FIRST_COLUMN_X + ([coordinate column] * TILE_SIZE),
+											   FIRST_COLUMN_Y + ([coordinate row] * TILE_SIZE),
+											   TILE_SIZE,
+											   TILE_SIZE)];
+		}];
+	}
+
+	[[self PieceV] setColumn:[[path lastObject] column]];
+	[[self PieceV] setRow:[[path lastObject] row]];
 }
 
 @end

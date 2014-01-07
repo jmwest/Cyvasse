@@ -10,8 +10,9 @@
 
 #import "BoardView.h"
 #import "PieceImportHeader.h"
+#import "PieceViewController.h"
 
-@interface BoardViewController : UIViewController <PieceDelegate>
+@interface BoardViewController : UIViewController <PieceDelegate, TileSelectedDelegate>
 
 @property (strong, nonatomic) NSMutableArray *Tiles;
 @property (strong, nonatomic) BoardView *BoardV;

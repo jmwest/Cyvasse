@@ -21,7 +21,7 @@
 #import "Trebuchet.h"
 
 #import "Piece.h"
-#import "PieceViewController.h"
-#import "CoordinateModel.h"
+//#import "PieceViewController.h"
+//#import "CoordinateModel.h"
 
 #endif

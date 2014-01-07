@@ -9,12 +9,15 @@
 #import "BoardViewController.h"
 #import "TileViewController.h"
 #import "PieceImportHeader.h"
+#import "PieceViewController.h"
+#import "CoordinateModel.h"
 
 @interface BoardViewController ()
 
 - (NSMutableArray *)RecursivelyAddTilesAndReturnArray:(NSMutableArray *)tileArray Coord:(CoordinateModel *)coordinate Piece:(Piece *)piece MovesLeft:(int)movesLeft;
 
 - (void)RemoveTapGesturesFromTiles:(NSMutableArray *)tileArray;
+- (void)AddTapGestureWithTarget:(SEL)selector ToTiles:(NSMutableArray *)tileArray;
 
 - (CoordinateModel *)getLeftCoord:(CoordinateModel *)coordinate;
 - (CoordinateModel *)getRightCoord:(CoordinateModel *)coordinate;
@@ -22,6 +25,7 @@
 - (CoordinateModel *)getDownCoord:(CoordinateModel *)coordinate;
 
 - (void)combineArray:(NSMutableArray *)arrayOne WithArray:(NSMutableArray *)arrayTwo;
+- (void)highlightTiles:(Highlight)highlight InArray:(NSMutableArray *)array;
 
 - (BOOL)checkCoordCanGoLeft:(CoordinateModel *)coordinate;
 - (BOOL)checkCoordCanGoRight:(CoordinateModel *)coordinate;
@@ -35,6 +39,7 @@
 - (BOOL)coordCompare:(CoordinateModel *)op1 :(CoordinateModel *)op2;
 
 @property (strong, nonatomic) NSMutableArray *MoveableCoords;
+@property (strong, nonatomic) PieceViewController *MoveablePiece;
 
 @end
 
@@ -44,6 +49,7 @@
 @synthesize BoardV = _BoardV;
 
 @synthesize MoveableCoords = _MoveableCoords;
+@synthesize MoveablePiece = _MoveablePiece;
 
 - (void)viewDidLoad
 {
@@ -66,6 +72,7 @@
 		{
 			TileViewController *TVC = [[TileViewController alloc] initWithColumn:i AndRow:j];
 			[TVC setTilePassability:Plains];
+			[TVC setDelegate:self];
 			[[[self Tiles] objectAtIndex:i] addObject:TVC];
 
 			[self addChildViewController:TVC];
@@ -95,8 +102,11 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)AllowPieceToBe:(Highlight)highlight WithCoordinate:(CoordinateModel *)coordinate AndPiece:(Piece *)piece
+#pragma mark - Delegate Methods
+
+- (void)AllowPieceToBe:(Highlight)highlight WithCoordinate:(CoordinateModel *)coordinate AndPieceViewController:(id)pieceVC
 {
+	Piece *piece = [pieceVC piece];
 	int moves = [piece MovementLength];
 
 	NSMutableArray *stack = [[NSMutableArray alloc] init];
@@ -134,17 +144,28 @@
 	}
 
 	[self setMoveableCoords:acquisitions];
+	[self setMoveablePiece:pieceVC];
 
-	TileViewController *TVC;
-	for (int j = 1; j < [acquisitions count]; j++)
-	{
-		TVC = [[[self Tiles] objectAtIndex:[[acquisitions objectAtIndex:j] column]] objectAtIndex:[[acquisitions objectAtIndex:j] row]];
-
-		[TVC setTileOverlay:highlight];
-	}
+	[self highlightTiles:highlight InArray:[self MoveableCoords]];
 
 	[self RemoveTapGesturesFromTiles:[self Tiles]];
+	[self AddTapGestureWithTarget:@selector(tileTapGestureWhenMoving) ToTiles:[self Tiles]];
 }
+
+- (void)TileHasBeenSelectedAt:(CoordinateModel *)coordinate
+{
+	if (![self checkArray:[self MoveableCoords] DoesNotContainCoord:coordinate])
+	{
+		NSMutableArray *path = [[NSMutableArray alloc] initWithObjects:coordinate, nil];
+		[[self MoveablePiece] movePieceAlongPath:path];
+	}
+
+	[self highlightTiles:UnHighlighted InArray:[self MoveableCoords]];
+	[self RemoveTapGesturesFromTiles:[self Tiles]];
+	[self AddTapGestureWithTarget:@selector(tileTapGesture) ToTiles:[self Tiles]];
+}
+
+#pragma mark -
 
 - (NSMutableArray *)RecursivelyAddTilesAndReturnArray:(NSMutableArray *)tileArray Coord:(CoordinateModel *)coordinate Piece:(Piece *)piece MovesLeft:(int)movesLeft
 {
@@ -196,6 +217,21 @@
 	}
 }
 
+- (void)AddTapGestureWithTarget:(SEL)selector ToTiles:(NSMutableArray *)tileArray
+{
+	for (int i = 0; i < [tileArray count]; i++)
+	{
+		for (int j = 0; j < [[tileArray objectAtIndex:i] count]; j++)
+		{
+			TileViewController *temp = [[tileArray objectAtIndex:i] objectAtIndex:j];
+
+			UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:temp action:selector];
+
+			[temp addTapGestureToTile:gesture];
+		}
+	}
+}
+
 - (CoordinateModel *)getLeftCoord:(CoordinateModel *)coordinate
 {
 	return [[CoordinateModel alloc] initWithColumn:([coordinate column] - 1) AndRow:[coordinate row]];
@@ -224,6 +260,17 @@
 		{
 			[arrayOne addObject:[arrayTwo objectAtIndex:i]];
 		}
+	}
+}
+
+- (void)highlightTiles:(Highlight)highlight InArray:(NSMutableArray *)array
+{
+	TileViewController *TVC;
+	for (int j = 0; j < [array count]; j++)
+	{
+		TVC = [[[self Tiles] objectAtIndex:[[array objectAtIndex:j] column]] objectAtIndex:[[array objectAtIndex:j] row]];
+		
+		[TVC setTileOverlay:highlight];
 	}
 }
 

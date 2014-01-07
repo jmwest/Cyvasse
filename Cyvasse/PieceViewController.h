@@ -9,13 +9,13 @@
 #import <UIKit/UIKit.h>
 
 #import "PieceView.h"
+#import "TileViewController.h"
 #import "PieceImportHeader.h"
 #import "CoordinateModel.h"
-#import "TileViewController.h"
 
 @protocol PieceDelegate <NSObject>
 
-- (void)AllowPieceToBe:(Highlight)highlight WithCoordinate:(CoordinateModel *)coordinate AndPiece:(Piece *)piece;
+- (void)AllowPieceToBe:(Highlight)highlight WithCoordinate:(CoordinateModel *)coordinate AndPieceViewController:(id)pieceVC;
 
 @end
 
@@ -28,6 +28,8 @@
 
 - (void)bringUpMovementBlocks;
 - (void)bringUpAttackBlocks;
+
+- (void)movePieceAlongPath:(NSMutableArray *)path;
 
 @property (strong, nonatomic) PieceView *PieceV;
 @property (strong, nonatomic) Piece *piece;

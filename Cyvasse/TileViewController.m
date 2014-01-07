@@ -45,6 +45,9 @@
 
 	self = [self initWithFrame:rect];
 
+	[[self TileIV] setColumn:column];
+	[[self TileIV] setRow:row];
+
 	return self;
 }
 
@@ -116,6 +119,12 @@
 		default:
 			break;
 	}
+}
+
+- (void)tileTapGestureWhenMoving
+{
+	CoordinateModel *coord = [[CoordinateModel alloc] initWithColumn:[[self TileIV] Column] AndRow:[[self TileIV] Row]];
+	[[self delegate] TileHasBeenSelectedAt:coord];
 }
 
 - (void)addTapGestureToTile:(UITapGestureRecognizer *)gesture

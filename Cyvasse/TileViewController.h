@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 
 #import "TileImageView.h"
-//#import "PieceImportHeader.h"
+#import "PieceImportHeader.h"
+#import "CoordinateModel.h"
 
 typedef enum {
 	DefaultH,
@@ -18,11 +19,11 @@ typedef enum {
 	Attack
 } Highlight;
 
-//@protocol TileSelectedDelegate <NSObject>
-//
-//- (void)TileHasBeenSelectedAt:(CoordinateModel *)coordinate;
-//
-//@end
+@protocol TileSelectedDelegate <NSObject>
+
+- (void)TileHasBeenSelectedAt:(CoordinateModel *)coordinate;
+
+@end
 
 @interface TileViewController : UIViewController <UIGestureRecognizerDelegate>
 
@@ -30,6 +31,7 @@ typedef enum {
 - (id)initWithFrame:(CGRect)rect;
 
 - (void)tileTapGesture;
+- (void)tileTapGestureWhenMoving;
 - (void)addTapGestureToTile:(UITapGestureRecognizer *)gesture;
 - (void)removeTapGestureFromTile:(UITapGestureRecognizer *)gesture;
 
@@ -46,5 +48,7 @@ typedef enum {
 @property (strong, nonatomic) TileImageView *TileIV;
 
 @property (strong, nonatomic) UITapGestureRecognizer *TapRecognizer;
+
+@property (weak, nonatomic) id <TileSelectedDelegate> delegate;
 
 @end

@@ -23,6 +23,8 @@
 
 - (id)initWithImage:(NSString *)imageName Piece:(Piece *)piece Column:(int)column Row:(int)row AndColor:(UIColor *)color;
 
+- (void)setUserInteraction:(BOOL)interaction;
+
 - (void)setHealthBarColor:(UIColor *)color;
 - (void)setHealthBarLength:(float)currentHealth :(float)maxHealth;
 

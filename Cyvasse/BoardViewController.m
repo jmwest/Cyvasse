@@ -18,6 +18,7 @@
 
 - (void)RemoveTapGesturesFromTiles:(NSMutableArray *)tileArray;
 - (void)AddTapGestureWithTarget:(SEL)selector ToTiles:(NSMutableArray *)tileArray;
+- (void)SetTapGesturesForPieces:(NSMutableArray *)pieceArray :(BOOL)interaction;
 
 - (CoordinateModel *)getLeftCoord:(CoordinateModel *)coordinate;
 - (CoordinateModel *)getRightCoord:(CoordinateModel *)coordinate;
@@ -46,6 +47,7 @@
 @implementation BoardViewController
 
 @synthesize Tiles = _Tiles;
+@synthesize Pieces = _Pieces;
 @synthesize BoardV = _BoardV;
 
 @synthesize MoveableCoords = _MoveableCoords;
@@ -58,6 +60,7 @@
 	CGRect mainscreen = [[UIScreen mainScreen] bounds];
 
 	[self setTiles:[[NSMutableArray alloc] init]];
+	[self setPieces:[[NSMutableArray alloc] init]];
 	[self setBoardV:[[BoardView alloc] initWithFrame:CGRectMake(mainscreen.origin.x,
 																mainscreen.origin.y,
 																mainscreen.size.width,
@@ -80,6 +83,11 @@
 		}
 	}
 
+	for (int i = 0; i < 2; i++)
+	{
+		[[self Pieces] addObject:[[NSMutableArray alloc] init]];
+	}
+
 	Dragon *dragon = [[Dragon alloc] init];
 	PieceViewController *dragonController = [[PieceViewController alloc] initWithImage:@"BlackDragon" Piece:dragon Column:9 Row:9 AndColor:[UIColor blueColor]];
 
@@ -94,6 +102,9 @@
 
 	[dragonController setDelegate:self];
 	[elephantController setDelegate:self];
+
+	[[[self Pieces] objectAtIndex:0] addObject:dragonController];
+	[[[self Pieces] objectAtIndex:1] addObject:elephantController];
 }
 
 - (void)didReceiveMemoryWarning
@@ -149,6 +160,7 @@
 	[self highlightTiles:highlight InArray:[self MoveableCoords]];
 
 	[self RemoveTapGesturesFromTiles:[self Tiles]];
+	[self SetTapGesturesForPieces:[self Pieces] :FALSE];
 	[self AddTapGestureWithTarget:@selector(tileTapGestureWhenMoving) ToTiles:[self Tiles]];
 }
 
@@ -162,6 +174,7 @@
 
 	[self highlightTiles:UnHighlighted InArray:[self MoveableCoords]];
 	[self RemoveTapGesturesFromTiles:[self Tiles]];
+	[self SetTapGesturesForPieces:[self Pieces] :TRUE];
 	[self AddTapGestureWithTarget:@selector(tileTapGesture) ToTiles:[self Tiles]];
 }
 
@@ -228,6 +241,17 @@
 			UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:temp action:selector];
 
 			[temp addTapGestureToTile:gesture];
+		}
+	}
+}
+
+- (void)SetTapGesturesForPieces:(NSMutableArray *)pieceArray :(BOOL)interaction
+{
+	for (int i = 0; i < [pieceArray count]; i++)
+	{
+		for (int j = 0; j < [[pieceArray objectAtIndex:i] count]; j++)
+		{
+			[[[pieceArray objectAtIndex:i] objectAtIndex:j] setUserInteraction:interaction];
 		}
 	}
 }

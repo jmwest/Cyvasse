@@ -74,6 +74,11 @@
 	[[self PieceV] addSubview:[[self PieceV] PieceHealthBar]];
 }
 
+- (void)setUserInteraction:(BOOL)interaction
+{
+	[[self PieceV] setUserInteractionEnabled:interaction];
+}
+
 #pragma mark -
 
 - (void)addTapGesture
@@ -106,7 +111,7 @@
 	{
 		coordinate = [path objectAtIndex:i];
 
-		[UIView animateWithDuration:0.5f animations:^{
+		[UIView animateWithDuration:0.3f animations:^{
 			[[self PieceV] setFrame:CGRectMake(FIRST_COLUMN_X + ([coordinate column] * TILE_SIZE),
 											   FIRST_COLUMN_Y + ([coordinate row] * TILE_SIZE),
 											   TILE_SIZE,

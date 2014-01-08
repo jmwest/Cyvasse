@@ -15,6 +15,7 @@
 @interface BoardViewController : UIViewController <PieceDelegate, TileSelectedDelegate>
 
 @property (strong, nonatomic) NSMutableArray *Tiles;
+@property (strong, nonatomic) NSMutableArray *Pieces;
 @property (strong, nonatomic) BoardView *BoardV;
 
 @end

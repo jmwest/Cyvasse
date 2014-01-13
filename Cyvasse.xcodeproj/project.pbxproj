@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		270526CB18847AEC00EE2FF3 /* SelectTerrainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 270526CA18847AEC00EE2FF3 /* SelectTerrainView.m */; };
+		270526CE18847AFE00EE2FF3 /* SelectTerrainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 270526CD18847AFE00EE2FF3 /* SelectTerrainViewController.m */; };
 		270A8DA01877742F00B762A0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 270A8D9F1877742F00B762A0 /* UIKit.framework */; };
 		270A8DA21877742F00B762A0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 270A8DA11877742F00B762A0 /* Foundation.framework */; };
 		270A8DA41877742F00B762A0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 270A8DA31877742F00B762A0 /* CoreGraphics.framework */; };
@@ -51,6 +53,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		270526C918847AEC00EE2FF3 /* SelectTerrainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectTerrainView.h; sourceTree = "<group>"; };
+		270526CA18847AEC00EE2FF3 /* SelectTerrainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectTerrainView.m; sourceTree = "<group>"; };
+		270526CC18847AFE00EE2FF3 /* SelectTerrainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectTerrainViewController.h; sourceTree = "<group>"; };
+		270526CD18847AFE00EE2FF3 /* SelectTerrainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectTerrainViewController.m; sourceTree = "<group>"; };
 		270A8D9C1877742F00B762A0 /* Cyvasse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cyvasse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		270A8D9F1877742F00B762A0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		270A8DA11877742F00B762A0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -139,6 +145,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		270526CF18847B0600EE2FF3 /* SelectTerrain */ = {
+			isa = PBXGroup;
+			children = (
+				270526CC18847AFE00EE2FF3 /* SelectTerrainViewController.h */,
+				270526CD18847AFE00EE2FF3 /* SelectTerrainViewController.m */,
+				270526C918847AEC00EE2FF3 /* SelectTerrainView.h */,
+				270526CA18847AEC00EE2FF3 /* SelectTerrainView.m */,
+			);
+			name = SelectTerrain;
+			sourceTree = "<group>";
+		};
 		270A8D931877742F00B762A0 = {
 			isa = PBXGroup;
 			children = (
@@ -265,6 +282,7 @@
 				277D54761878B10400D23813 /* BoardViewController.m */,
 				277D54721878A13F00D23813 /* BoardView.h */,
 				277D54731878A13F00D23813 /* BoardView.m */,
+				270526CF18847B0600EE2FF3 /* SelectTerrain */,
 			);
 			name = Board;
 			sourceTree = "<group>";
@@ -391,10 +409,12 @@
 				27723EA11877E4B400556BF9 /* TileImageView.m in Sources */,
 				277D54771878B10400D23813 /* BoardViewController.m in Sources */,
 				27723EA41877E71300556BF9 /* TileViewController.m in Sources */,
+				270526CE18847AFE00EE2FF3 /* SelectTerrainViewController.m in Sources */,
 				270A8DE8187774B100B762A0 /* Light Horse.m in Sources */,
 				270A8DE9187774B100B762A0 /* Piece.m in Sources */,
 				270A8DEC187774B100B762A0 /* PieceView.m in Sources */,
 				270A8DEE187774B100B762A0 /* Rabble.m in Sources */,
+				270526CB18847AEC00EE2FF3 /* SelectTerrainView.m in Sources */,
 				270A8DEF187774B100B762A0 /* Spearman.m in Sources */,
 				270A8DF0187774B100B762A0 /* Trebuchet.m in Sources */,
 				270A8DF518777E3000B762A0 /* PieceViewController.m in Sources */,

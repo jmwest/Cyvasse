@@ -18,5 +18,6 @@
 #define FIRST_COLUMN_X 10.0f
 #define FIRST_COLUMN_Y 30.0f
 #define BOTTOM_BORDER_Y 330.0f
+#define SELECT_TERRAIN_HEIGHT 100.0f
 
 #endif

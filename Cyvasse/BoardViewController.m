@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 John West. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
+
 #import "BoardViewController.h"
 #import "TileViewController.h"
 #import "PieceImportHeader.h"
@@ -13,6 +15,8 @@
 #import "CoordinateModel.h"
 
 @interface BoardViewController ()
+
+- (void)AddShadowToView:(UIView *)view;
 
 - (NSMutableArray *)RecursivelyAddTilesAndReturnArray:(NSMutableArray *)tileArray Coord:(CoordinateModel *)coordinate Piece:(Piece *)piece MovesLeft:(int)movesLeft;
 
@@ -65,6 +69,14 @@
 																mainscreen.origin.y,
 																mainscreen.size.width,
 																mainscreen.size.height)]];
+
+	CALayer *layer = [[[self BoardV] Background] layer];
+    [layer setShadowOffset:CGSizeMake(1, 1)];
+    [layer setShadowColor:[[UIColor blackColor] CGColor]];
+    [layer setShadowRadius:8.0f];
+    [layer setShadowOpacity:1.0f];
+    [layer setShadowPath:[[UIBezierPath bezierPathWithRect:[layer bounds]] CGPath]];
+
 	[self setView:[self BoardV]];
 
 	for (int i = 0; i < 10; i++)
@@ -176,6 +188,18 @@
 	[self RemoveTapGesturesFromTiles:[self Tiles]];
 	[self SetTapGesturesForPieces:[self Pieces] :TRUE];
 	[self AddTapGestureWithTarget:@selector(tileTapGesture) ToTiles:[self Tiles]];
+}
+
+#pragma mark -
+
+- (void)AddShadowToView:(UIView *)view
+{
+	CALayer *layer = [[self view] layer];
+    layer.shadowOffset = CGSizeMake(1, 1);
+    layer.shadowColor = [[UIColor blackColor] CGColor];
+    layer.shadowRadius = 10.0f;
+    layer.shadowOpacity = 1.0f;
+    layer.shadowPath = [[UIBezierPath bezierPathWithRect:[layer bounds]] CGPath];
 }
 
 #pragma mark -

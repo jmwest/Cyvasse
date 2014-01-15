@@ -16,8 +16,6 @@
 
 @interface BoardViewController ()
 
-- (void)AddShadowToView:(UIView *)view;
-
 - (NSMutableArray *)RecursivelyAddTilesAndReturnArray:(NSMutableArray *)tileArray Coord:(CoordinateModel *)coordinate Piece:(Piece *)piece MovesLeft:(int)movesLeft;
 
 - (void)RemoveTapGesturesFromTiles:(NSMutableArray *)tileArray;
@@ -28,6 +26,7 @@
 - (CoordinateModel *)getRightCoord:(CoordinateModel *)coordinate;
 - (CoordinateModel *)getUpCoord:(CoordinateModel *)coordinate;
 - (CoordinateModel *)getDownCoord:(CoordinateModel *)coordinate;
+- (TileViewController *)getTileAtCoord:(CoordinateModel *)coordinate;
 
 - (void)combineArray:(NSMutableArray *)arrayOne WithArray:(NSMutableArray *)arrayTwo;
 - (void)highlightTiles:(Highlight)highlight InArray:(NSMutableArray *)array;
@@ -42,6 +41,8 @@
 - (int)calculateMovementCostToCoord:(CoordinateModel *)coordinate WithPiece:(Piece *)piece;
 
 - (BOOL)coordCompare:(CoordinateModel *)op1 :(CoordinateModel *)op2;
+
+- (UIBezierPath *)makeBottomPath:(CGRect)rect;
 
 @property (strong, nonatomic) NSMutableArray *MoveableCoords;
 @property (strong, nonatomic) PieceViewController *MoveablePiece;
@@ -75,7 +76,8 @@
     [layer setShadowColor:[[UIColor blackColor] CGColor]];
     [layer setShadowRadius:8.0f];
     [layer setShadowOpacity:1.0f];
-    [layer setShadowPath:[[UIBezierPath bezierPathWithRect:[layer bounds]] CGPath]];
+//    [layer setShadowPath:[[UIBezierPath bezierPathWithRect:[layer bounds]] CGPath]];
+    [layer setShadowPath:[[self makeBottomPath:[[[self BoardV] Background] bounds]] CGPath]];
 
 	[self setView:[self BoardV]];
 
@@ -178,7 +180,7 @@
 
 - (void)TileHasBeenSelectedAt:(CoordinateModel *)coordinate
 {
-	if (![self checkArray:[self MoveableCoords] DoesNotContainCoord:coordinate])
+	if ((![self checkArray:[self MoveableCoords] DoesNotContainCoord:coordinate]) && ([[self getTileAtCoord:coordinate] checkTileOccupied] != Occupied))
 	{
 		NSMutableArray *path = [[NSMutableArray alloc] initWithObjects:coordinate, nil];
 		[[self MoveablePiece] movePieceAlongPath:path];
@@ -188,18 +190,6 @@
 	[self RemoveTapGesturesFromTiles:[self Tiles]];
 	[self SetTapGesturesForPieces:[self Pieces] :TRUE];
 	[self AddTapGestureWithTarget:@selector(tileTapGesture) ToTiles:[self Tiles]];
-}
-
-#pragma mark -
-
-- (void)AddShadowToView:(UIView *)view
-{
-	CALayer *layer = [[self view] layer];
-    layer.shadowOffset = CGSizeMake(1, 1);
-    layer.shadowColor = [[UIColor blackColor] CGColor];
-    layer.shadowRadius = 10.0f;
-    layer.shadowOpacity = 1.0f;
-    layer.shadowPath = [[UIBezierPath bezierPathWithRect:[layer bounds]] CGPath];
 }
 
 #pragma mark -
@@ -298,6 +288,11 @@
 - (CoordinateModel *)getDownCoord:(CoordinateModel *)coordinate
 {
 	return [[CoordinateModel alloc] initWithColumn:[coordinate column] AndRow:([coordinate row] + 1)];
+}
+
+- (TileViewController *)getTileAtCoord:(CoordinateModel *)coordinate
+{
+	return [[[self Tiles] objectAtIndex:[coordinate column]] objectAtIndex:[coordinate row]];
 }
 
 - (void)combineArray:(NSMutableArray *)arrayOne WithArray:(NSMutableArray *)arrayTwo
@@ -436,6 +431,22 @@
 	}
 
 	return false;
+}
+
+- (UIBezierPath *)makeBottomPath:(CGRect)rect
+{
+	CGSize size = rect.size;
+	UIBezierPath *path = [UIBezierPath bezierPath];
+
+	[path moveToPoint:CGPointZero];
+	[path addLineToPoint:CGPointMake(0.0f, size.height)];
+	[path addLineToPoint:CGPointMake(size.width, size.height)];
+	[path addLineToPoint:CGPointMake(size.width, 0.0f)];
+	[path addLineToPoint:CGPointMake(0.0f, size.height)];
+
+	[path closePath];
+
+	return path;
 }
 
 @end

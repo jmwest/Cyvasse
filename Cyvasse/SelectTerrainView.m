@@ -19,7 +19,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-		[self setMountainView:[[UIImageView alloc] initWithFrame:<#(CGRect)#>]]
+		[self setMountainView:[[UIImageView alloc] initWithFrame:frame]];
     }
     return self;
 }

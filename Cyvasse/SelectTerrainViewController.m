@@ -11,11 +11,21 @@
 
 @interface SelectTerrainViewController ()
 
+- (void)setTapGestures;
+
+- (void)MountainSelected;
+- (void)RiverSelected;
+- (void)PlainSelected;
+
 @end
 
 @implementation SelectTerrainViewController
 
 @synthesize SelectTerrainV = _SelectTerrainV;
+
+@synthesize MountainRecognizer = _MountainRecognizer;
+@synthesize RiverRecognizer = _RiverRecognizer;
+@synthesize PlainRecognizer = _PlainRecognizer;
 
 - (void)viewDidLoad
 {
@@ -26,6 +36,15 @@
 
 	[self setSelectTerrainV:[[SelectTerrainView alloc] initWithFrame:CGRectMake(LEFT_SIDE_X, view_y, mainscreen.size.width, SELECT_TERRAIN_HEIGHT)]];
 
+	[self setTapGestures];
+
+	CALayer *layer = [[self SelectTerrainV] layer];
+    [layer setShadowOffset:CGSizeMake(1, 1)];
+    [layer setShadowColor:[[UIColor blackColor] CGColor]];
+    [layer setShadowRadius:8.0f];
+    [layer setShadowOpacity:1.0f];
+	[layer setShadowPath:[[UIBezierPath bezierPathWithRect:[layer bounds]] CGPath]];
+
 	[self setView:[self SelectTerrainV]];
 }
 
@@ -33,6 +52,37 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)setTapGestures
+{
+	[[[self SelectTerrainV] MountainView] setUserInteractionEnabled:YES];
+	[[[self SelectTerrainV] RiverView] setUserInteractionEnabled:YES];
+	[[[self SelectTerrainV] PlainView] setUserInteractionEnabled:YES];
+
+	[self setMountainRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(MountainSelected)]];
+	[self setRiverRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(RiverSelected)]];
+	[self setPlainRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(PlainSelected)]];
+
+	[[[self SelectTerrainV] MountainView] addGestureRecognizer:[self MountainRecognizer]];
+	[[[self SelectTerrainV] RiverView] addGestureRecognizer:[self RiverRecognizer]];
+	[[[self SelectTerrainV] PlainView] addGestureRecognizer:[self PlainRecognizer]];
+}
+
+- (void)MountainSelected
+{
+	[[self delegate] ReturnSelectedTerrain:Mountain];
+}
+
+- (void)RiverSelected
+{
+	[[self delegate] ReturnSelectedTerrain:River];
+}
+
+- (void)PlainSelected
+{
+	[[self delegate] ReturnSelectedTerrain:Plains];
+
 }
 
 @end

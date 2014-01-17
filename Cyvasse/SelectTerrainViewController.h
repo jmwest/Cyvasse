@@ -13,12 +13,18 @@
 
 @protocol SelectTerrainDelegate <NSObject>
 
-- (void)ReturnSelectedTerrain:(Terrain *)terrain;
+- (void)ReturnSelectedTerrain:(Terrain)terrain;
 
 @end
 
 @interface SelectTerrainViewController : UIViewController
 
 @property (strong, nonatomic) SelectTerrainView *SelectTerrainV;
+
+@property (strong, nonatomic) id <SelectTerrainDelegate> delegate;
+
+@property (strong, nonatomic) UITapGestureRecognizer *MountainRecognizer;
+@property (strong, nonatomic) UITapGestureRecognizer *RiverRecognizer;
+@property (strong, nonatomic) UITapGestureRecognizer *PlainRecognizer;
 
 @end

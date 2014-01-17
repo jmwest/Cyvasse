@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+#import "SelectTerrainView.h"
+#import "TileImageView.h"
+
+@protocol SelectTerrainDelegate <NSObject>
+
+- (void)ReturnSelectedTerrain:(Terrain *)terrain;
+
+@end
+
 @interface SelectTerrainViewController : UIViewController
+
+@property (strong, nonatomic) SelectTerrainView *SelectTerrainV;
 
 @end

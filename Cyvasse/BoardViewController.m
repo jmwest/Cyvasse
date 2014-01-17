@@ -76,7 +76,6 @@
     [layer setShadowColor:[[UIColor blackColor] CGColor]];
     [layer setShadowRadius:8.0f];
     [layer setShadowOpacity:1.0f];
-//    [layer setShadowPath:[[UIBezierPath bezierPathWithRect:[layer bounds]] CGPath]];
     [layer setShadowPath:[[self makeBottomPath:[[[self BoardV] Background] bounds]] CGPath]];
 
 	[self setView:[self BoardV]];
@@ -441,8 +440,6 @@
 	[path moveToPoint:CGPointZero];
 	[path addLineToPoint:CGPointMake(0.0f, size.height)];
 	[path addLineToPoint:CGPointMake(size.width, size.height)];
-	[path addLineToPoint:CGPointMake(size.width, 0.0f)];
-	[path addLineToPoint:CGPointMake(0.0f, size.height)];
 
 	[path closePath];
 

@@ -22,10 +22,20 @@
 @implementation SelectTerrainViewController
 
 @synthesize SelectTerrainV = _SelectTerrainV;
+@synthesize Coordinate = _Coordinate;
 
 @synthesize MountainRecognizer = _MountainRecognizer;
 @synthesize RiverRecognizer = _RiverRecognizer;
 @synthesize PlainRecognizer = _PlainRecognizer;
+
+- (id)initWithCoordinate:(CoordinateModel *)coordinate
+{
+	self = [super init];
+	if (self) {
+		[self setCoordinate:coordinate];
+	}
+	return self;
+}
 
 - (void)viewDidLoad
 {
@@ -71,17 +81,17 @@
 
 - (void)MountainSelected
 {
-	[[self delegate] ReturnSelectedTerrain:Mountain];
+	[[self delegate] ReturnSelectedTerrain:Mountain :[self Coordinate]];
 }
 
 - (void)RiverSelected
 {
-	[[self delegate] ReturnSelectedTerrain:River];
+	[[self delegate] ReturnSelectedTerrain:River :[self Coordinate]];
 }
 
 - (void)PlainSelected
 {
-	[[self delegate] ReturnSelectedTerrain:Plains];
+	[[self delegate] ReturnSelectedTerrain:Plains :[self Coordinate]];
 
 }
 

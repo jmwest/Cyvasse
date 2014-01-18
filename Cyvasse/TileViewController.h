@@ -21,6 +21,7 @@ typedef enum {
 
 @protocol TileSelectedDelegate <NSObject>
 
+- (void)TileSelectedToChangeTerrain:(CoordinateModel *)coordinate;
 - (void)TileHasBeenSelectedAt:(CoordinateModel *)coordinate;
 
 @end

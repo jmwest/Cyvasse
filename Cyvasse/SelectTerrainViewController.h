@@ -10,16 +10,20 @@
 
 #import "SelectTerrainView.h"
 #import "TileImageView.h"
+#import "CoordinateModel.h"
 
 @protocol SelectTerrainDelegate <NSObject>
 
-- (void)ReturnSelectedTerrain:(Terrain)terrain;
+- (void)ReturnSelectedTerrain:(Terrain)terrain :(CoordinateModel *)coordinate;
 
 @end
 
 @interface SelectTerrainViewController : UIViewController
 
+- (id)initWithCoordinate:(CoordinateModel *)coordinate;
+
 @property (strong, nonatomic) SelectTerrainView *SelectTerrainV;
+@property (strong, nonatomic) CoordinateModel *Coordinate;
 
 @property (strong, nonatomic) id <SelectTerrainDelegate> delegate;
 

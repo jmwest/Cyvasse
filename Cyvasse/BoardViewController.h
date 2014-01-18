@@ -11,8 +11,9 @@
 #import "BoardView.h"
 #import "PieceImportHeader.h"
 #import "PieceViewController.h"
+#import "SelectTerrainViewController.h"
 
-@interface BoardViewController : UIViewController <PieceDelegate, TileSelectedDelegate>
+@interface BoardViewController : UIViewController <PieceDelegate, TileSelectedDelegate, SelectTerrainDelegate>
 
 @property (strong, nonatomic) NSMutableArray *Tiles;
 @property (strong, nonatomic) NSMutableArray *Pieces;

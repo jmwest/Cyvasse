@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 John West. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
+
 #import "TileViewController.h"
 #import "GlobalConstants.h"
 
@@ -102,23 +104,25 @@
 
 - (void)tileTapGesture
 {
-	switch ([[self TileIV] Passability])
-	{
-		case Plains:
-			[self setTilePassability:Mountain];
-			break;
+	[[self delegate] TileSelectedToChangeTerrain:[[CoordinateModel alloc] initWithColumn:[[self TileIV] Column] AndRow:[[self TileIV] Row]]];
 
-		case Mountain:
-			[self setTilePassability:River];
-			break;
-
-		case River:
-			[self setTilePassability:Plains];
-			break;
-
-		default:
-			break;
-	}
+//	switch ([[self TileIV] Passability])
+//	{
+//		case Plains:
+//			[self setTilePassability:Mountain];
+//			break;
+//
+//		case Mountain:
+//			[self setTilePassability:River];
+//			break;
+//
+//		case River:
+//			[self setTilePassability:Plains];
+//			break;
+//
+//		default:
+//			break;
+//	}
 }
 
 - (void)tileTapGestureWhenMoving
@@ -182,7 +186,19 @@
 			break;
 
 		case Movement:
+		{
 			[[[self TileIV] ColorOverlay] setBackgroundColor:[self MovementColor]];
+
+			CGSize size = [[[self TileIV] ColorOverlay] bounds].size;
+
+			CAGradientLayer *gradient = [CAGradientLayer layer];
+			[gradient setFrame:[[[self TileIV] ColorOverlay] bounds]];
+			[gradient setColors:[[NSArray alloc] initWithObjects:[UIColor whiteColor], [self MovementColor], nil]];
+			[gradient setStartPoint:CGPointMake(0.0f, size.height)];
+			[gradient setEndPoint:CGPointMake(size.width, 0.0f)];
+
+			[[[[self TileIV] ColorOverlay] layer] insertSublayer:gradient atIndex:0];
+		}
 			break;
 
 		case Attack:

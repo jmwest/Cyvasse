@@ -46,6 +46,7 @@
 
 @property (strong, nonatomic) NSMutableArray *MoveableCoords;
 @property (strong, nonatomic) PieceViewController *MoveablePiece;
+@property (strong ,nonatomic) SelectTerrainViewController *CurrentSelectTerrainVC;
 
 @end
 
@@ -177,6 +178,22 @@
 	[self AddTapGestureWithTarget:@selector(tileTapGestureWhenMoving) ToTiles:[self Tiles]];
 }
 
+- (void)TileSelectedToChangeTerrain:(CoordinateModel *)coordinate
+{
+	if ([self CurrentSelectTerrainVC])
+	{
+		[[[self CurrentSelectTerrainVC] view] removeFromSuperview];
+		[[self CurrentSelectTerrainVC] removeFromParentViewController];
+	}
+
+	[self setCurrentSelectTerrainVC:[[SelectTerrainViewController alloc] initWithCoordinate:coordinate]];
+
+	[self addChildViewController:[self CurrentSelectTerrainVC]];
+	[[self view] addSubview:[[self CurrentSelectTerrainVC] view]];
+
+	[[self CurrentSelectTerrainVC] setDelegate:self];
+}
+
 - (void)TileHasBeenSelectedAt:(CoordinateModel *)coordinate
 {
 	if ((![self checkArray:[self MoveableCoords] DoesNotContainCoord:coordinate]) && ([[self getTileAtCoord:coordinate] checkTileOccupied] != Occupied))
@@ -189,6 +206,14 @@
 	[self RemoveTapGesturesFromTiles:[self Tiles]];
 	[self SetTapGesturesForPieces:[self Pieces] :TRUE];
 	[self AddTapGestureWithTarget:@selector(tileTapGesture) ToTiles:[self Tiles]];
+}
+
+- (void)ReturnSelectedTerrain:(Terrain)terrain :(CoordinateModel *)coordinate
+{
+	[[self getTileAtCoord:coordinate] setTilePassability:terrain];
+
+	[[[self CurrentSelectTerrainVC] view] removeFromSuperview];
+	[[self CurrentSelectTerrainVC] removeFromParentViewController];
 }
 
 #pragma mark -

@@ -294,6 +294,8 @@
 	}
 }
 
+#pragma mark - Get Methods
+
 - (CoordinateModel *)getLeftCoord:(CoordinateModel *)coordinate
 {
 	return [[CoordinateModel alloc] initWithColumn:([coordinate column] - 1) AndRow:[coordinate row]];
@@ -319,6 +321,8 @@
 	return [[[self Tiles] objectAtIndex:[coordinate column]] objectAtIndex:[coordinate row]];
 }
 
+#pragma mark -
+
 - (void)combineArray:(NSMutableArray *)arrayOne WithArray:(NSMutableArray *)arrayTwo
 {
 	for (int i = 0; i < [arrayTwo count]; i++)
@@ -340,6 +344,8 @@
 		[TVC setTileOverlay:highlight];
 	}
 }
+
+#pragma mark - Check Methods
 
 - (BOOL)checkCoordCanGoLeft:(CoordinateModel *)coordinate
 {
@@ -404,6 +410,8 @@
 	return true;
 }
 
+#pragma mark - Movement Calculation
+
 - (int)calculateMovementCostToCoord:(CoordinateModel *)coordinate WithPiece:(Piece *)piece
 {
 	if ([[[[[self Tiles] objectAtIndex:[coordinate column]] objectAtIndex:[coordinate row]] TileIV] Passability] == Plains)
@@ -447,6 +455,8 @@
 	}
 }
 
+#pragma mark -
+
 - (BOOL)coordCompare:(CoordinateModel *)op1 :(CoordinateModel *)op2
 {
 	if (([op1 column] == [op2 column]) && ([op1 row] == [op2 row]))
@@ -456,6 +466,8 @@
 
 	return false;
 }
+
+#pragma mark - Make Board Shadow
 
 - (UIBezierPath *)makeBottomPath:(CGRect)rect
 {

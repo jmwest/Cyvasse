@@ -104,9 +104,11 @@
 
 	Dragon *dragon = [[Dragon alloc] init];
 	PieceViewController *dragonController = [[PieceViewController alloc] initWithImage:@"BlackDragon" Piece:dragon Column:9 Row:9 AndColor:[UIColor blueColor]];
+	[[self getTileAtCoord:[[CoordinateModel alloc] initWithColumn:9 AndRow:9]] setTileOccupied:Occupied];
 
 	Elephant *elephant = [[Elephant alloc] init];
 	PieceViewController *elephantController = [[PieceViewController alloc] initWithImage:@"RedElephant" Piece:elephant Column:2 Row:7 AndColor:[UIColor redColor]];
+	[[self getTileAtCoord:[[CoordinateModel alloc] initWithColumn:2 AndRow:7]] setTileOccupied:Occupied];
 
 	[self addChildViewController:dragonController];
 	[[self BoardV] addSubview:[dragonController PieceV]];
@@ -198,8 +200,13 @@
 {
 	if ((![self checkArray:[self MoveableCoords] DoesNotContainCoord:coordinate]) && ([[self getTileAtCoord:coordinate] checkTileOccupied] != Occupied))
 	{
+		CoordinateModel *currentCoord = [[self MoveablePiece] Coordinate];
+		[[self getTileAtCoord:currentCoord] setTileOccupied:UnOccupied];
+		[[self MoveablePiece] setCoordinate:coordinate];
+
 		NSMutableArray *path = [[NSMutableArray alloc] initWithObjects:coordinate, nil];
 		[[self MoveablePiece] movePieceAlongPath:path];
+		[[self getTileAtCoord:coordinate] setTileOccupied:Occupied];
 	}
 
 	[self highlightTiles:UnHighlighted InArray:[self MoveableCoords]];

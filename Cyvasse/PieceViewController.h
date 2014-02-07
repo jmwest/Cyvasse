@@ -36,6 +36,7 @@
 @property (strong, nonatomic) PieceView *PieceV;
 @property (strong, nonatomic) Piece *piece;
 @property (strong, nonatomic) UITapGestureRecognizer *TapGesture;
+@property (strong, nonatomic) CoordinateModel *Coordinate;
 
 @property (weak, nonatomic) id <PieceDelegate> delegate;
 

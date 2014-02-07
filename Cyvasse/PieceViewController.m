@@ -20,6 +20,7 @@
 @synthesize PieceV = _PieceV;
 @synthesize piece = _piece;
 @synthesize TapGesture = _TapGesture;
+@synthesize Coordinate = _Coordinate;
 
 - (id)initWithImage:(NSString *)imageName Piece:(Piece *)piece Column:(int)column Row:(int)row AndColor:(UIColor *)color
 {
@@ -36,6 +37,8 @@
 		[self setPiece:piece];
 
 		[self addTapGesture];
+
+		[self setCoordinate:[[CoordinateModel alloc] initWithColumn:column AndRow:row]];
 	}
 	return self;
 }

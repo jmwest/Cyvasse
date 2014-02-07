@@ -34,6 +34,8 @@
 		270A8DEF187774B100B762A0 /* Spearman.m in Sources */ = {isa = PBXBuildFile; fileRef = 270A8DDE187774B100B762A0 /* Spearman.m */; };
 		270A8DF0187774B100B762A0 /* Trebuchet.m in Sources */ = {isa = PBXBuildFile; fileRef = 270A8DE0187774B100B762A0 /* Trebuchet.m */; };
 		270A8DF518777E3000B762A0 /* PieceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 270A8DF418777E3000B762A0 /* PieceViewController.m */; };
+		2770659118A47C5C0066CA45 /* StatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2770659018A47C5C0066CA45 /* StatisticsViewController.m */; };
+		2770659418A47C6D0066CA45 /* StatisticsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2770659318A47C6D0066CA45 /* StatisticsView.m */; };
 		27723EA11877E4B400556BF9 /* TileImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27723EA01877E4B400556BF9 /* TileImageView.m */; };
 		27723EA41877E71300556BF9 /* TileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27723EA31877E71300556BF9 /* TileViewController.m */; };
 		27723EA61877ED9B00556BF9 /* RedDragon.png in Resources */ = {isa = PBXBuildFile; fileRef = 27723EA51877ED9B00556BF9 /* RedDragon.png */; };
@@ -148,6 +150,10 @@
 		270A8DE0187774B100B762A0 /* Trebuchet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Trebuchet.m; sourceTree = "<group>"; };
 		270A8DF318777E3000B762A0 /* PieceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PieceViewController.h; sourceTree = "<group>"; };
 		270A8DF418777E3000B762A0 /* PieceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PieceViewController.m; sourceTree = "<group>"; };
+		2770658F18A47C5C0066CA45 /* StatisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatisticsViewController.h; sourceTree = "<group>"; };
+		2770659018A47C5C0066CA45 /* StatisticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticsViewController.m; sourceTree = "<group>"; };
+		2770659218A47C6D0066CA45 /* StatisticsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatisticsView.h; sourceTree = "<group>"; };
+		2770659318A47C6D0066CA45 /* StatisticsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticsView.m; sourceTree = "<group>"; };
 		27723E9F1877E47700556BF9 /* TileImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileImageView.h; sourceTree = "<group>"; };
 		27723EA01877E4B400556BF9 /* TileImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileImageView.m; sourceTree = "<group>"; };
 		27723EA21877E71300556BF9 /* TileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileViewController.h; sourceTree = "<group>"; };
@@ -376,6 +382,17 @@
 			name = PieceView;
 			sourceTree = "<group>";
 		};
+		2770658E18A47C370066CA45 /* StatisticsView */ = {
+			isa = PBXGroup;
+			children = (
+				2770658F18A47C5C0066CA45 /* StatisticsViewController.h */,
+				2770659018A47C5C0066CA45 /* StatisticsViewController.m */,
+				2770659218A47C6D0066CA45 /* StatisticsView.h */,
+				2770659318A47C6D0066CA45 /* StatisticsView.m */,
+			);
+			name = StatisticsView;
+			sourceTree = "<group>";
+		};
 		277D54711878A10B00D23813 /* Board */ = {
 			isa = PBXGroup;
 			children = (
@@ -384,6 +401,7 @@
 				277D54721878A13F00D23813 /* BoardView.h */,
 				277D54731878A13F00D23813 /* BoardView.m */,
 				270526CF18847B0600EE2FF3 /* SelectTerrain */,
+				2770658E18A47C370066CA45 /* StatisticsView */,
 			);
 			name = Board;
 			sourceTree = "<group>";
@@ -603,6 +621,7 @@
 				270A8DAE1877742F00B762A0 /* main.m in Sources */,
 				270A8DB21877742F00B762A0 /* AppDelegate.m in Sources */,
 				270A8DBB1877742F00B762A0 /* Cyvasse.xcdatamodeld in Sources */,
+				2770659418A47C6D0066CA45 /* StatisticsView.m in Sources */,
 				270A8DE1187774B100B762A0 /* Catapult.m in Sources */,
 				270A8DE2187774B100B762A0 /* Crossbowman.m in Sources */,
 				270A8DE3187774B100B762A0 /* Dragon.m in Sources */,
@@ -614,6 +633,7 @@
 				277D54771878B10400D23813 /* BoardViewController.m in Sources */,
 				27723EA41877E71300556BF9 /* TileViewController.m in Sources */,
 				270526CE18847AFE00EE2FF3 /* SelectTerrainViewController.m in Sources */,
+				2770659118A47C5C0066CA45 /* StatisticsViewController.m in Sources */,
 				270A8DE8187774B100B762A0 /* Light Horse.m in Sources */,
 				270A8DE9187774B100B762A0 /* Piece.m in Sources */,
 				270A8DEC187774B100B762A0 /* PieceView.m in Sources */,
@@ -729,6 +749,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

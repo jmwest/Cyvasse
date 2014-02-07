@@ -15,6 +15,7 @@
 	self = [super init];
 	if (self)
 	{
+		[self setName:@"Rabble"];
 		[self setHealth:1];
 		[self setMaxHealth:1];
 		[self setAttack:1];

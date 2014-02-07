@@ -10,6 +10,7 @@
 
 @implementation Piece
 
+@synthesize Name = _Name;
 @synthesize Health = _Health;
 @synthesize MaxHealth = _MaxHealth;
 @synthesize Attack = _Attack;

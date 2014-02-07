@@ -15,6 +15,7 @@
 	self = [super init];
 	if (self)
 	{
+		[self setName:@"Elephant"];
 		[self setHealth:7];
 		[self setMaxHealth:7];
 		[self setAttack:3];

@@ -15,6 +15,7 @@
 	self = [super init];
 	if (self)
 	{
+		[self setName:@"Light Horse"];
 		[self setHealth:4];
 		[self setMaxHealth:4];
 		[self setAttack:3];

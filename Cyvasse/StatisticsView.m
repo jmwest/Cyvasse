@@ -15,6 +15,7 @@
 @synthesize HealthView = _HealthView;
 @synthesize HealthValueView = _HealthValueView;
 @synthesize HealthBar = _HealthBar;
+@synthesize HealthBarBackground = _HealthBarBackground;
 @synthesize AttackView = _AttackView;
 @synthesize AttackValueView = _AttackValueView;
 @synthesize DefenseView	= _DefenseView;
@@ -26,7 +27,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-		
+		[self setBackgroundColor:[UIColor grayColor]];
     }
     return self;
 }

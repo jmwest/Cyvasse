@@ -15,6 +15,7 @@
 	self = [super init];
 	if (self)
 	{
+		[self setName:@"Trebuchet"];
 		[self setHealth:2];
 		[self setMaxHealth:2];
 		[self setAttack:3];

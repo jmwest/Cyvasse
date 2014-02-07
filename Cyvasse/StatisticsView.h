@@ -15,6 +15,7 @@
 @property (strong, nonatomic) UITextView *HealthView;
 @property (strong, nonatomic) UITextView *HealthValueView;
 @property (strong, nonatomic) UIView *HealthBar;
+@property (strong, nonatomic) UIView *HealthBarBackground;
 @property (strong, nonatomic) UITextView *AttackView;
 @property (strong, nonatomic) UITextView *AttackValueView;
 @property (strong, nonatomic) UITextView *DefenseView;

@@ -19,6 +19,7 @@ typedef enum {
 
 @interface Piece : NSObject
 
+@property (strong, nonatomic) NSString *Name;
 @property (assign, nonatomic) int Health;
 @property (assign, nonatomic) int MaxHealth;
 @property (assign, nonatomic) int Attack;

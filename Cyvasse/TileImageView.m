@@ -13,8 +13,8 @@
 @synthesize Passability = _Passability;
 @synthesize Occupied = _Occupied;
 @synthesize ColorOverlay = _ColorOverlay;
-@synthesize Column = _Column;
-@synthesize Row = _Row;
+@synthesize tileColumn = _tileColumn;
+@synthesize tileRow = _tileRow;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -27,8 +27,8 @@
 																	   0.0f,
 																	   frame.size.width,
 																	   frame.size.height)]];
-		[self setColumn:0];
-		[self setRow:0];
+		[self setTileColumn:0];
+		[self setTileRow:0];
 
 		[[self ColorOverlay] setBackgroundColor:[UIColor clearColor]];
 

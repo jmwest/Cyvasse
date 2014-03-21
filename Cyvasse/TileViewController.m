@@ -47,8 +47,8 @@
 
 	self = [self initWithFrame:rect];
 
-	[[self TileIV] setColumn:column];
-	[[self TileIV] setRow:row];
+	[[self TileIV] setTileColumn:column];
+	[[self TileIV] setTileRow:row];
 
 	return self;
 }
@@ -104,7 +104,7 @@
 
 - (void)tileTapGesture
 {
-	[[self delegate] TileSelectedToChangeTerrain:[[CoordinateModel alloc] initWithColumn:[[self TileIV] Column] AndRow:[[self TileIV] Row]]];
+	[[self delegate] TileSelectedToChangeTerrain:[[CoordinateModel alloc] initWithColumn:[[self TileIV] tileColumn] AndRow:[[self TileIV] tileRow]]];
 
 //	switch ([[self TileIV] Passability])
 //	{
@@ -127,7 +127,7 @@
 
 - (void)tileTapGestureWhenMoving
 {
-	CoordinateModel *coord = [[CoordinateModel alloc] initWithColumn:[[self TileIV] Column] AndRow:[[self TileIV] Row]];
+	CoordinateModel *coord = [[CoordinateModel alloc] initWithColumn:[[self TileIV] tileColumn] AndRow:[[self TileIV] tileRow]];
 	[[self delegate] TileHasBeenSelectedAt:coord];
 }
 
@@ -217,18 +217,18 @@
 
 - (void)setTileColumn:(int)column AndRow:(int)row
 {
-	[[self TileIV] setColumn:column];
-	[[self TileIV] setRow:row];
+	[[self TileIV] setTileColumn:column];
+	[[self TileIV] setTileRow:row];
 }
 
 - (int)getTileColumn
 {
-	return [[self TileIV] Column];
+	return [[self TileIV] tileColumn];
 }
 
 - (int)getTileRow
 {
-	return [[self TileIV] Row];
+	return [[self TileIV] tileRow];
 }
 
 #pragma mark -

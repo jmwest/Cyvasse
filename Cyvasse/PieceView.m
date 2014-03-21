@@ -14,8 +14,8 @@
 @synthesize PieceHealthBar = _PieceHealthBar;
 @synthesize PieceHealthBackground = _PieceHealthBackground;
 
-@synthesize column = _column;
-@synthesize row = _row;
+@synthesize pieceColumn = _pieceColumn;
+@synthesize pieceRow = _pieceRow;
 
 - (id)initWithFrame:(CGRect)frame Image:(NSString *)string Column:(int)column Row:(int)row AndHealthColor:(UIColor *)color
 {
@@ -40,8 +40,8 @@
 		UIImage *image = [UIImage imageNamed:string];
 		[[self PieceImage] setImage:image];
 
-		[self setColumn:column];
-		[self setRow:row];
+		[self setPieceColumn:column];
+		[self setPieceRow:row];
 
 		[[self PieceHealthBar] setBackgroundColor:color];
 		[[self PieceHealthBackground] setBackgroundColor:[UIColor blackColor]];

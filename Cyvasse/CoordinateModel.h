@@ -12,7 +12,7 @@
 
 - (id)initWithColumn:(int)column AndRow:(int)row;
 
-@property (assign, nonatomic) int column;
-@property (assign, nonatomic) int row;
+@property (assign, nonatomic) int coordColumn;
+@property (assign, nonatomic) int coordRow;
 
 @end

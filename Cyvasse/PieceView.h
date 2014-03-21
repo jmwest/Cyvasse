@@ -16,7 +16,7 @@
 @property (strong, nonatomic) UIView *PieceHealthBar;
 @property (strong, nonatomic) UIView *PieceHealthBackground;
 
-@property (assign, nonatomic) int column;
-@property (assign, nonatomic) int row;
+@property (assign, nonatomic) int pieceColumn;
+@property (assign, nonatomic) int pieceRow;
 
 @end

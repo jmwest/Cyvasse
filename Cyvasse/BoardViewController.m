@@ -141,22 +141,22 @@
 	CoordinateModel *coord;
 	if ([self checkCoordCanGoDown:coordinate])
 	{
-		coord = [[CoordinateModel alloc] initWithColumn:[coordinate column] AndRow:([coordinate row] + 1)];
+		coord = [[CoordinateModel alloc] initWithColumn:[coordinate coordColumn] AndRow:([coordinate coordRow] + 1)];
 		[stack addObject:coord];
 	}
 	if ([self checkCoordCanGoUp:coordinate])
 	{
-		coord = [[CoordinateModel alloc] initWithColumn:[coordinate column] AndRow:([coordinate row] - 1)];
+		coord = [[CoordinateModel alloc] initWithColumn:[coordinate coordColumn] AndRow:([coordinate coordRow] - 1)];
 		[stack addObject:coord];
 	}
 	if ([self checkCoordCanGoLeft:coordinate])
 	{
-		coord = [[CoordinateModel alloc] initWithColumn:([coordinate column] - 1) AndRow:[coordinate row]];
+		coord = [[CoordinateModel alloc] initWithColumn:([coordinate coordColumn] - 1) AndRow:[coordinate coordRow]];
 		[stack addObject:coord];
 	}
 	if ([self checkCoordCanGoRight:coordinate])
 	{
-		coord = [[CoordinateModel alloc] initWithColumn:([coordinate column] + 1) AndRow:[coordinate row]];
+		coord = [[CoordinateModel alloc] initWithColumn:([coordinate coordColumn] + 1) AndRow:[coordinate coordRow]];
 		[stack addObject:coord];
 	}
 
@@ -305,27 +305,27 @@
 
 - (CoordinateModel *)getLeftCoord:(CoordinateModel *)coordinate
 {
-	return [[CoordinateModel alloc] initWithColumn:([coordinate column] - 1) AndRow:[coordinate row]];
+	return [[CoordinateModel alloc] initWithColumn:([coordinate coordColumn] - 1) AndRow:[coordinate coordRow]];
 }
 
 - (CoordinateModel *)getRightCoord:(CoordinateModel *)coordinate
 {
-	return [[CoordinateModel alloc] initWithColumn:([coordinate column] + 1) AndRow:[coordinate row]];
+	return [[CoordinateModel alloc] initWithColumn:([coordinate coordColumn] + 1) AndRow:[coordinate coordRow]];
 }
 
 - (CoordinateModel *)getUpCoord:(CoordinateModel *)coordinate
 {
-	return [[CoordinateModel alloc] initWithColumn:[coordinate column] AndRow:([coordinate row] - 1)];
+	return [[CoordinateModel alloc] initWithColumn:[coordinate coordColumn] AndRow:([coordinate coordRow] - 1)];
 }
 
 - (CoordinateModel *)getDownCoord:(CoordinateModel *)coordinate
 {
-	return [[CoordinateModel alloc] initWithColumn:[coordinate column] AndRow:([coordinate row] + 1)];
+	return [[CoordinateModel alloc] initWithColumn:[coordinate coordColumn] AndRow:([coordinate coordRow] + 1)];
 }
 
 - (TileViewController *)getTileAtCoord:(CoordinateModel *)coordinate
 {
-	return [[[self Tiles] objectAtIndex:[coordinate column]] objectAtIndex:[coordinate row]];
+	return [[[self Tiles] objectAtIndex:[coordinate coordColumn]] objectAtIndex:[coordinate coordRow]];
 }
 
 #pragma mark -
@@ -346,8 +346,8 @@
 	TileViewController *TVC;
 	for (int j = 0; j < [array count]; j++)
 	{
-		TVC = [[[self Tiles] objectAtIndex:[[array objectAtIndex:j] column]] objectAtIndex:[[array objectAtIndex:j] row]];
-		
+		TVC = [[[self Tiles] objectAtIndex:[[array objectAtIndex:j] coordColumn]] objectAtIndex:[[array objectAtIndex:j] coordRow]];
+
 		[TVC setTileOverlay:highlight];
 	}
 }
@@ -356,7 +356,7 @@
 
 - (BOOL)checkCoordCanGoLeft:(CoordinateModel *)coordinate
 {
-	if ([coordinate column] > 0)
+	if ([coordinate coordColumn] > 0)
 	{
 		return true;
 	}
@@ -366,7 +366,7 @@
 
 - (BOOL)checkCoordCanGoRight:(CoordinateModel *)coordinate
 {
-	if ([coordinate column] < 9)
+	if ([coordinate coordColumn] < 9)
 	{
 		return true;
 	}
@@ -376,7 +376,7 @@
 
 - (BOOL)checkCoordCanGoUp:(CoordinateModel *)coordinate
 {
-	if ([coordinate row] > 0)
+	if ([coordinate coordRow] > 0)
 	{
 		return true;
 	}
@@ -386,7 +386,7 @@
 
 - (BOOL)checkCoordCanGoDown:(CoordinateModel *)coordinate
 {
-	if ([coordinate row] < 9)
+	if ([coordinate coordRow] < 9)
 	{
 		return true;
 	}
@@ -421,7 +421,7 @@
 
 - (int)calculateMovementCostToCoord:(CoordinateModel *)coordinate WithPiece:(Piece *)piece
 {
-	if ([[[[[self Tiles] objectAtIndex:[coordinate column]] objectAtIndex:[coordinate row]] TileIV] Passability] == Plains)
+	if ([[[[[self Tiles] objectAtIndex:[coordinate coordColumn]] objectAtIndex:[coordinate coordRow]] TileIV] Passability] == Plains)
 	{
 		return 1;
 	}
@@ -436,7 +436,7 @@
 	}
 	else if ([piece Capability] == Ahorse)
 	{
-		if ([[[[[self Tiles] objectAtIndex:[coordinate column]] objectAtIndex:[coordinate row]] TileIV] Passability] == River)
+		if ([[[[[self Tiles] objectAtIndex:[coordinate coordColumn]] objectAtIndex:[coordinate coordRow]] TileIV] Passability] == River)
 		{
 			return 2;
 		}
@@ -447,7 +447,7 @@
 	}
 	else if ([piece Capability] == Wheeled)
 	{
-		if ([[[[[self Tiles] objectAtIndex:[coordinate column]] objectAtIndex:[coordinate row]] TileIV] Passability] == River)
+		if ([[[[[self Tiles] objectAtIndex:[coordinate coordColumn]] objectAtIndex:[coordinate coordRow]] TileIV] Passability] == River)
 		{
 			return 2;
 		}
@@ -466,7 +466,7 @@
 
 - (BOOL)coordCompare:(CoordinateModel *)op1 :(CoordinateModel *)op2
 {
-	if (([op1 column] == [op2 column]) && ([op1 row] == [op2 row]))
+	if (([op1 coordColumn] == [op2 coordColumn]) && ([op1 coordRow] == [op2 coordRow]))
 	{
 		return true;
 	}

@@ -27,7 +27,7 @@ typedef enum {
 @property (assign, nonatomic) TileOccupied Occupied;
 @property (strong, nonatomic) UIView *ColorOverlay;
 
-@property (assign, nonatomic) int Column;
-@property (assign, nonatomic) int Row;
+@property (assign, nonatomic) int tileColumn;
+@property (assign, nonatomic) int tileRow;
 
 @end

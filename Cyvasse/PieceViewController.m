@@ -97,13 +97,13 @@
 
 - (void)bringUpMovementBlocks
 {
-	CoordinateModel *CM = [[CoordinateModel alloc] initWithColumn:[[self PieceV] column] AndRow:[[self PieceV] row]];
+	CoordinateModel *CM = [[CoordinateModel alloc] initWithColumn:[[self PieceV] pieceColumn] AndRow:[[self PieceV] pieceRow]];
 	[[self delegate] AllowPieceToBe:Movement WithCoordinate:CM AndPieceViewController:self];
 }
 
 - (void)bringUpAttackBlocks
 {
-	CoordinateModel *CM = [[CoordinateModel alloc] initWithColumn:[[self PieceV] column] AndRow:[[self PieceV] row]];
+	CoordinateModel *CM = [[CoordinateModel alloc] initWithColumn:[[self PieceV] pieceColumn] AndRow:[[self PieceV] pieceRow]];
 	[[self delegate] AllowPieceToBe:Attack WithCoordinate:CM AndPieceViewController:self];
 }
 
@@ -115,15 +115,15 @@
 		coordinate = [path objectAtIndex:i];
 
 		[UIView animateWithDuration:0.3f animations:^{
-			[[self PieceV] setFrame:CGRectMake(FIRST_COLUMN_X + ([coordinate column] * TILE_SIZE),
-											   FIRST_COLUMN_Y + ([coordinate row] * TILE_SIZE),
+			[[self PieceV] setFrame:CGRectMake(FIRST_COLUMN_X + ([coordinate coordColumn] * TILE_SIZE),
+											   FIRST_COLUMN_Y + ([coordinate coordRow] * TILE_SIZE),
 											   TILE_SIZE,
 											   TILE_SIZE)];
 		}];
 	}
 
-	[[self PieceV] setColumn:[[path lastObject] column]];
-	[[self PieceV] setRow:[[path lastObject] row]];
+	[[self PieceV] setPieceColumn:[[path lastObject] coordColumn]];
+	[[self PieceV] setPieceRow:[[path lastObject] coordRow]];
 }
 
 @end

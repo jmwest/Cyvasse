@@ -16,11 +16,11 @@
 	{
 		if (column)
 		{
-			[self setColumn:column];
+			[self setCoordColumn:column];
 		}
 		if (row)
 		{
-			[self setRow:row];
+			[self setCoordRow:row];
 		}
 	}
 	return self;

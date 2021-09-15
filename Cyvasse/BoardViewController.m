@@ -13,6 +13,7 @@
 #import "PieceImportHeader.h"
 #import "PieceViewController.h"
 #import "CoordinateModel.h"
+#import "Map.h"
 
 @interface BoardViewController ()
 
@@ -44,6 +45,7 @@
 
 - (UIBezierPath *)makeBottomPath:(CGRect)rect;
 
+@property (strong, nonatomic) Map *Map;
 @property (strong, nonatomic) NSMutableArray *MoveableCoords;
 @property (strong, nonatomic) PieceViewController *MoveablePiece;
 @property (strong ,nonatomic) SelectTerrainViewController *CurrentSelectTerrainVC;
@@ -53,9 +55,11 @@
 @implementation BoardViewController
 
 @synthesize Tiles = _Tiles;
+@synthesize Paths = _Paths;
 @synthesize Pieces = _Pieces;
 @synthesize BoardV = _BoardV;
 
+@synthesize Map = _Map;
 @synthesize MoveableCoords = _MoveableCoords;
 @synthesize MoveablePiece = _MoveablePiece;
 
@@ -66,11 +70,13 @@
 	CGRect mainscreen = [[UIScreen mainScreen] bounds];
 
 	[self setTiles:[[NSMutableArray alloc] init]];
+	[self setPaths:[[NSMutableArray alloc] init]];
 	[self setPieces:[[NSMutableArray alloc] init]];
 	[self setBoardV:[[BoardView alloc] initWithFrame:CGRectMake(mainscreen.origin.x,
 																mainscreen.origin.y,
 																mainscreen.size.width,
 																mainscreen.size.height)]];
+	[self setMap:[[Map alloc] init]];
 
 	CALayer *layer = [[[self BoardV] Background] layer];
     [layer setShadowOffset:CGSizeMake(1, 1)];
@@ -255,6 +261,16 @@
 		}
 	}
 
+	NSMutableArray *pathR = [[NSMutableArray alloc] initWithObjects:temp, tempR, nil];
+	NSMutableArray *pathL = [[NSMutableArray alloc] initWithObjects:temp, tempL, nil];
+	NSMutableArray *pathU = [[NSMutableArray alloc] initWithObjects:temp, tempU, nil];
+	NSMutableArray *pathD = [[NSMutableArray alloc] initWithObjects:temp, tempD, nil];
+
+	[[self Paths] addObject:pathR];
+	[[self Paths] addObject:pathL];
+	[[self Paths] addObject:pathU];
+	[[self Paths] addObject:pathD];
+
 	[self combineArray:temp WithArray:tempR];
 	[self combineArray:temp WithArray:tempL];
 	[self combineArray:temp WithArray:tempD];
@@ -300,6 +316,10 @@
 		}
 	}
 }
+
+#pragma mark - New Grid Search
+
+
 
 #pragma mark - Get Methods
 
@@ -421,6 +441,11 @@
 
 - (int)calculateMovementCostToCoord:(CoordinateModel *)coordinate WithPiece:(Piece *)piece
 {
+	if ([[[[[self Tiles] objectAtIndex:[coordinate coordColumn]] objectAtIndex:[coordinate coordRow]] TileIV] Occupied] == Occupied)
+	{
+		return  [piece MovementLength] + 1;
+	}
+
 	if ([[[[[self Tiles] objectAtIndex:[coordinate coordColumn]] objectAtIndex:[coordinate coordRow]] TileIV] Passability] == Plains)
 	{
 		return 1;
